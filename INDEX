@@ -1,8 +1,7 @@
-NNclean                 Nearest neighbor based clutter/noise detection
 autoconst               Spatial autocorrelation parameter estimation
 cluspop.nb              Simulation of presence-absence matrices
                         (clustered)
-comp.test		Compare species clustering and species groups
+comp.test               Compare species clustering and species groups
 con.comp                Connectivity components of an undirected graph
 con.regmat              Connected regions per species
 distratio               Distance ratio test statistics for distance
@@ -15,6 +14,8 @@ kulczynski              Kulczynski distance matrix
 kykladspecreg           Snail presence-absence data from Aegean sea
 lcomponent              Largest connectivity component
 nb                      Neighborhood list for Aegean islands
+nbtest                  Test of neighborhood list
+NNclean                 Nearest neighbor based clutter/noise detection
 nn                      Mean distance to kth nearest neighbor
 pop.sim                 p-value simulation for presence-absence
                         matrices clustering test

@@ -86,7 +86,7 @@ tests for clustering of species ranges, submitted,
   \url{http://www.math.uni-hamburg.de/home/hennig/}}
 
 \seealso{
-  \code{\link{EMclustN}}, \code{\link{summary.EMclustN}},
+  \code{\link[mclust]{EMclustN}}, \code{\link[mclust]{summary.EMclustN}},
   \code{\link{NNclean}}, \code{\link{cmdscale}},
   \code{\link{isoMDS}}, \code{\link{sammon}},
   \code{\link{prabinit}}.
