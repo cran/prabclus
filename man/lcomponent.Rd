@@ -22,13 +22,14 @@ lcomponent(distmat, ne = floor(3*ncol(distmat)/4))
   \item{ne}{see above.}
 }
 \references{
-Hennig, C. and Hausdorf, B. (2002) Distance-based parametric bootstrap
-tests for clustering of species ranges, submitted,
-\url{http://stat.ethz.ch/Research-Reports/110.html}.}
+Hennig, C. and Hausdorf, B. (2004) Distance-based parametric bootstrap
+tests for clustering of species ranges. \emph{Computational Statistics
+  and
+  Data Analysis} 45, 875-896.}
 
 \author{Christian Hennig
-  \email{hennig@math.uni-hamburg.de}
-  \url{http://www.math.uni-hamburg.de/home/hennig/}}
+  \email{chrish@stats.ucl.ac.uk}
+  \url{http://www.homepages.ucl.ac.uk/~ucakche}}
 
 \seealso{\code{\link{prabtest}}}
 

@@ -61,8 +61,8 @@ Removal for Estimating Features in Spatial Point Processes,
 \emph{Journal of the American Statistical Association}, 93, 577-584.
 }
 \author{R-port by Christian Hennig
-  \email{hennig@math.uni-hamburg.de}
-  \url{http://www.math.uni-hamburg.de/home/hennig/},\cr
+  \email{chrish@stats.ucl.ac.uk}
+  \url{http://www.homepages.ucl.ac.uk/~ucakche},\cr
   original Splus package by S. Byers and A. E. Raftery.
 }
 

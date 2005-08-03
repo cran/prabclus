@@ -17,7 +17,7 @@ incmatrix(regmat)
 \value{
   A list with components
   \item{m}{0-1-matrix. \code{m[i,j]=1} means that the occupied region of
-  species j is a subset (or equal) of the region of species i.}
+  species j is a subset (not equal) of the region of species i.}
   \item{ninc}{integer. Number of strict inclusions.}
   \item{neq}{integer. Number of region equalities between species (not
     including equality between species i and i).}
@@ -29,8 +29,10 @@ Pleistocene glacial refuges. \emph{Oecologia} 135, 102-109.
 
 }
 \author{Christian Hennig
-  \email{hennig@math.uni-hamburg.de}
-  \url{http://www.math.uni-hamburg.de/home/hennig/}}
+  \email{chrish@stats.ucl.ac.uk}
+  \url{http://www.homepages.ucl.ac.uk/~ucakche}}
+
+
 
 \seealso{
   \code{\link{prabtest}}

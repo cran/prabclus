@@ -7,7 +7,7 @@
   presence-absence matrix.   
 }
 \usage{
-con.regmat(regmat, neighbors, count = TRUE)
+con.regmat(regmat, neighbors, count = FALSE)
 }
 %- maybe also `usage' for other objects documented here.
 \arguments{
@@ -27,8 +27,9 @@ con.regmat(regmat, neighbors, count = TRUE)
 }
 
 \author{Christian Hennig
-  \email{hennig@math.uni-hamburg.de}
-  \url{http://www.math.uni-hamburg.de/home/hennig/}}
+  \email{chrish@stats.ucl.ac.uk}
+  \url{http://www.homepages.ucl.ac.uk/~ucakche}}
+
 
 \note{Designed for use in \code{prabtest}.}
 

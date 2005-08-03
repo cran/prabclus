@@ -1,6 +1,6 @@
 "pop.sim" <-
 function(regmat, neighbors, h0c=1, times=200, dist="kulczynski",
-                    teststat="isovertice",testc=NULL,
+                    teststat="isovertice",testc=NULL,geodist=NULL,gtf=0.1,
                     n.species=ncol(regmat), specperreg=NULL,
                     regperspec=NULL, species.fixed=FALSE, pdfnb=FALSE){
   statres <- rep(0,times)
@@ -24,6 +24,8 @@ function(regmat, neighbors, h0c=1, times=200, dist="kulczynski",
         distm <- jaccard(mat)
       if (dist=="kulczynski")
         distm <- kulczynski(mat)
+      if (dist=="geco")
+        distm <- geco(mat,geodist,tf=gtf)
     }
     else
       statres[i] <- incmatrix(mat)$ninc
@@ -45,6 +47,8 @@ function(regmat, neighbors, h0c=1, times=200, dist="kulczynski",
       distm <- jaccard(regmat)
     if (dist=="kulczynski")
       distm <- kulczynski(regmat)
+    if (dist=="geco")
+      distm <- geco(regmat,geodist,tf=gtf)
   }
   else{
     test <- incmatrix(regmat)$ninc
@@ -91,10 +95,3 @@ function(regmat, neighbors, h0c=1, times=200, dist="kulczynski",
               testc=testc)
   out
 }
-
-
-
-
-
-
-

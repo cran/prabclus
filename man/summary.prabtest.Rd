@@ -30,8 +30,8 @@ summary.prabtest(object, ...)
 }
 
 \author{Christian Hennig
-  \email{hennig@math.uni-hamburg.de}
-  \url{http://www.math.uni-hamburg.de/home/hennig/}}
+  \email{chrish@stats.ucl.ac.uk}
+  \url{http://www.homepages.ucl.ac.uk/~ucakche}}
 
 \seealso{\code{\link{prabtest}}}
 
@@ -47,7 +47,7 @@ data(nb)
 #                   skip=i-1,nlines=1)))
 set.seed(5678)
 kprab <- prabinit(prabmatrix=kykladspecreg, neighborhood=nb)
-kpt <- prabtest(kprab, times=50, pd=0.35, teststat="lcomponent")
+kpt <- prabtest(kprab, times=5, pd=0.35, teststat="lcomponent")
 # The parameters times and
 # pd are only given to fasten the example execution.
 summary(kpt)

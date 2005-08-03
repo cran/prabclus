@@ -10,8 +10,9 @@
 }
 \usage{
 pop.sim(regmat, neighbors, h0c = 1, times = 200, dist = "kulczynski",
-teststat = "isovertice", testc = NA, n.species = ncol(regmat),
-specperreg = NA, regperspec = NA, species.fixed=FALSE, pdfnb=pdfnb)
+teststat = "isovertice", testc = NULL, geodist=NULL, gtf=0.1,
+n.species = ncol(regmat),
+specperreg = NULL, regperspec = NULL, species.fixed=FALSE, pdfnb=FALSE)
 }
 %- maybe also `usage' for other objects documented here.
 \arguments{
@@ -22,13 +23,17 @@ specperreg = NA, regperspec = NA, species.fixed=FALSE, pdfnb=pdfnb)
     should be assigned a list \code{numeric(0)}.}
   \item{h0c}{numerical. Parameter \code{p.nb} for use in \code{randpop.nb}.}
   \item{times}{integer. Number of simulation runs.}
-  \item{dist}{"kulczynski" or "jaccard", see \code{kulczynski} and
-    \code{jaccard}.}
+  \item{dist}{"kulczynski", "jaccard" or "geco", see \code{kulczynski},
+    \code{geco} and \code{jaccard}.}
   \item{teststat}{"isovertice", "lcomponent", "distratio", "nn" or
     "inclusions". See
     the corresponding functions, \code{homogen.test} for "isovertice",
     \code{incmatrix} for "inclusions").}
   \item{testc}{numerical. Tuning constant for the test statistics.}
+  \item{geodist}{matrix of non-negative reals. Geographical distances
+    between regions. Only used if \code{dist="geco"}.}
+  \item{gtf}{tuning constant for geco-distance if \code{dist="geco"},
+    see \code{"geco"}.}
   \item{n.species}{integer. Number of species.}
   \item{specperreg}{vector of integers. Numbers of species per region
     (is calculated from the data by default).}
@@ -49,20 +54,22 @@ specperreg = NA, regperspec = NA, species.fixed=FALSE, pdfnb=pdfnb)
   \item{testc}{see above.}
 }
 \references{
-Hennig, C. and Hausdorf, B. (2002) Distance-based parametric bootstrap
-tests for clustering of species ranges, submitted,
+Hennig, C. and Hausdorf, B. (2004) Distance-based parametric bootstrap
+tests for clustering of species ranges. \emph{Computational Statistics
+  and
+  Data Analysis} 45, 875-896.
 \url{http://stat.ethz.ch/Research-Reports/110.html}.
 
 Hausdorf, B. and Hennig, C. (2003)  Biotic Element Analysis in
-Biogeography. To appear in  \emph{Systematic Biology}.
+Biogeography. \emph{Systematic Biology} 52, 717-723.
 
 Hausdorf, B. and Hennig, C. (2003) Nestedness of nerth-west European
 land snail ranges as a consequence of differential immigration from
 Pleistocene glacial refuges. \emph{Oecologia} 135, 102-109.
 }
 \author{Christian Hennig
-  \email{hennig@math.uni-hamburg.de}
-  \url{http://www.math.uni-hamburg.de/home/hennig/}}
+  \email{chrish@stats.ucl.ac.uk}
+  \url{http://www.homepages.ucl.ac.uk/~ucakche}}
 
 
 \seealso{
@@ -84,7 +91,7 @@ data(nb)
 #   nb <- c(nb,list(scan(file="(path/)nb.dat",
 #                   skip=i-1,nlines=1)))
 set.seed(1234)
-pop.sim(t(kykladspecreg), nb, times=20, h0c=0.35, teststat="nn", testc=3)
+pop.sim(t(kykladspecreg), nb, times=5, h0c=0.35, teststat="nn", testc=3)
 }
 \keyword{cluster}% at least one, from doc/KEYWORDS
 \keyword{htest}% __ONLY ONE__ keyword per line

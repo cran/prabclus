@@ -21,7 +21,8 @@
 prabtest(x, teststat = "distratio", tuning=switch(teststat,distratio=0.25,
 lcomponent=floor(3*ncol(x$distmat)/4),
 isovertice=ncol(x$distmat),nn=4,NA), times = 1000, pd = NULL,
-prange = c(0, 1), nperp = 4, step = 0.1, twostep = TRUE, sf.sim = FALSE,
+prange = c(0, 1), nperp = 4, step = 0.1, step2=0.01,
+twostep = TRUE, sf.sim = FALSE,
 sf.const = sf.sim, pdfnb=FALSE)
 }
 %- maybe also `usage' for other objects documented here.
@@ -53,6 +54,10 @@ sf.const = sf.sim, pdfnb=FALSE)
     by function \code{autoconst}.}
   \item{step}{numerical between 0 and 1. Interval length between
     subsequent choices of \code{pd} for the first simulation. Used
+    by function \code{autoconst}.}
+  \item{step2}{numerical between 0 and 1. Interval length between
+    subsequent choices of \code{pd} for the second simulation (see
+    parameter \code{twostep}). Used
     by function \code{autoconst}.}
   \item{twostep}{logical. If \code{TRUE}, a first estimation step for
     \code{pd} is
@@ -90,7 +95,7 @@ sf.const = sf.sim, pdfnb=FALSE)
   specified, a diagnostic plot
   for the estimation of \code{pd} is plotted by \code{autoconst}.
   For details see Hennig
-  and Hausdorf (2002) and the help pages of the cited functions. 
+  and Hausdorf (2004) and the help pages of the cited functions. 
 }
 \value{
   An object of class \code{prabtest}, which is a list with components
@@ -103,25 +108,30 @@ sf.const = sf.sim, pdfnb=FALSE)
   \item{reg}{regression coefficients from \code{autoconst}.}
   \item{teststat}{see above.}
   \item{distance}{the distance measure chosen, see \code{prabinit}.}
+  \item{gtf}{the geco-distance tuning parameter (only informative if
+    \code{distance="geco"}), see \code{prabinit}.}
   \item{times}{see above.}
   \item{pdfnb}{see above.}
 }
 
 \references{
-Hennig, C. and Hausdorf, B. (2002) Distance-based parametric bootstrap
-tests for clustering of species ranges, submitted,
+Hennig, C. and Hausdorf, B. (2004) Distance-based parametric bootstrap
+tests for clustering of species ranges. \emph{Computational Statistics
+  and
+  Data Analysis} 45, 875-896.
 \url{http://stat.ethz.ch/Research-Reports/110.html}.
 
 Hausdorf, B. and Hennig, C. (2003)  Biotic Element Analysis in
-Biogeography. To appear in  \emph{Systematic Biology}.
+Biogeography. \emph{Systematic Biology} 52, 717-723.
 
-Hausdorf, B. and Hennig, C. (2003) Nestedness of nerth-west European
+Hausdorf, B. and Hennig, C. (2003) Nestedness of north-west European
 land snail ranges as a consequence of differential immigration from
 Pleistocene glacial refuges. \emph{Oecologia} 135, 102-109.
 }
 \author{Christian Hennig
-  \email{hennig@math.uni-hamburg.de}
-  \url{http://www.math.uni-hamburg.de/home/hennig/}}
+  \email{chrish@stats.ucl.ac.uk}
+  \url{http://www.homepages.ucl.ac.uk/~ucakche}}
+
 
 \seealso{
   \code{\link{prabinit}} generates objects of class \code{prab}.
@@ -157,7 +167,7 @@ x <- prabinit(prabmatrix=kykladspecreg, neighborhood=nb)
 # If you want to use your own ASCII data files, use
 # x <- prabinit(file="path/prabmatrixfile",
 # neighborhood="path/neighborhoodfile")
-prabtest(x, times=100, pd=0.35)
+prabtest(x, times=5, pd=0.35)
 # These settings are chosen to make the example execution
 # a bit faster; usually you will use prabtest(kprab).
 }

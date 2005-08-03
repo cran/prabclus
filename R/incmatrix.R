@@ -3,7 +3,7 @@ function(regmat){
   nart <- ncol(regmat)
   nreg <- nrow(regmat)
   neq <- 0
-  incmat <- diag(nart)
+  incmat <- matrix(0,ncol=nart,nrow=nart)
   for (i in 1:(nart-1))
     for (j in (i+1):nart){
 #      cat (i," ",j," ",sum(regmat[,i]<regmat[,j]),sum(regmat[,j]<regmat[,i]),"\n")
@@ -15,6 +15,6 @@ function(regmat){
 #        incmat[i,j] <- 0
         neq <- neq+1
     }
-  out <- list(m=incmat, ninc=sum(incmat)-2*neq-nart, neq=neq)
+  out <- list(m=incmat, ninc=sum(incmat), neq=neq)
   out
 }

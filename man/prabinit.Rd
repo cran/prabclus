@@ -3,27 +3,30 @@
 \alias{print.prab}
 \alias{prab}
 %- Also NEED an `\alias' for EACH other topic documented here.
-\title{Presence-absence matrix initialization}
+\title{Presence-absence/abundance matrix initialization}
 \description{
   \code{prabinit} converts a matrix into an object
   of class \code{prab} (presence-absence). The matrix may be read from a
   file or an R-object. It may be a 0-1 matrix or a matrix with
-  non-negative entries from which the 0-1 matrix is to be generated.
+  non-negative entries from which a 0-1 matrix can be generated.
   \code{print.prab} is a print method for such
   objects. 
 }
 \usage{
-prabinit(file = NA, prabmatrix = NA, rows.are.species = TRUE,
-neighborhood = "none", distance = "kulczynski", toprab = FALSE, toprabp
+prabinit(file = NULL, prabmatrix = NULL, rows.are.species = TRUE,
+neighborhood = "none", geodist=NULL, gtf=0.1,
+distance = "kulczynski", toprab = FALSE, toprabp
 = 0.05, outc = 5.2)
 
 \method{print}{prab}(x, ...)
 }
 %- maybe also `usage' for other objects documented here.
 \arguments{
-  \item{file}{string. 0-1 matrix ASCII file (such as example dataset
+  \item{file}{string. nen-negative matrix ASCII file (such as example dataset
     \code{kykladspecreg.dat}) from which the
-    matrix is read by \code{read.table}.}
+    matrix is read by \code{read.table}. The usual interpretation is
+    that it is a species-by-regions matrix of species presences/absences
+    (0-1 matrix) or abundances.}
   \item{prabmatrix}{matrix with non-negative entries. Either \code{file}
     or \code{prabmatrix} should be \code{NA}.}
   \item{rows.are.species}{logical. If \code{TRUE}, rows are interpreted
@@ -39,7 +42,12 @@ neighborhood = "none", distance = "kulczynski", toprab = FALSE, toprabp
     dataset \code{nb.dat}). If
     \code{neighborhood="none"}, all neighborhoods are set to
     \code{numeric(0)}. The neighborhood is tested by \code{nbtest}.}
-  \item{distance}{\code{"kulczinsky"}, \code{"jaccard"} or
+  \item{geodist}{matrix of non-negative reals. Geographical distances
+    between regions. Only used if \code{distance="geco"}.}
+  \item{gtf}{tuning constant for geco-distance if \code{distance="geco"},
+    see \code{geco}.}
+  \item{distance}{\code{"kulczynski"}, \code{"jaccard"}, \code{"geco"},
+    \code{"qkulczynski"} or
     \code{"none"}. The distance measure
     between species to compute by \code{prabinit}.}
   \item{toprab}{logical. If \code{TRUE}, a presence-absence matrix is
@@ -71,16 +79,19 @@ neighborhood = "none", distance = "kulczynski", toprab = FALSE, toprabp
   \item{n.species}{number of species.}
   \item{n.regions}{number of regions.}
   \item{distance}{string denoting the chosen distance measure.}
+  \item{geodist}{non-negative matrix. see above.}
+  \item{gtf}{numeric. see above.}
   \item{spatial}{\code{TRUE}, if there is a specified neighborhood
     structure.}  
 }
 
 \author{Christian Hennig
-  \email{hennig@math.uni-hamburg.de}
-  \url{http://www.math.uni-hamburg.de/home/hennig/}}
+  \email{chrish@stats.ucl.ac.uk}
+  \url{http://www.homepages.ucl.ac.uk/~ucakche}}
 
 \seealso{\code{\link{read.table}}, \code{\link{jaccard}},
-\code{\link{kulczynski}}, \code{\link{nbtest}}}
+  \code{\link{kulczynski}}, \code{\link{geco}},
+  \code{\link{qkulczynski}}, \code{\link{nbtest}}}
 
 \examples{
 # If you want to use your own ASCII data files, use

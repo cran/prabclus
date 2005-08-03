@@ -1,3 +1,4 @@
+NNclean                 Nearest neighbor based clutter/noise detection
 autoconst               Spatial autocorrelation parameter estimation
 cluspop.nb              Simulation of presence-absence matrices
                         (clustered)
@@ -6,8 +7,13 @@ con.comp                Connectivity components of an undirected graph
 con.regmat              Connected regions per species
 distratio               Distance ratio test statistics for distance
                         based clustering
+geco                    geco distance matrix
+geo2neighbor            Neighborhood list from geographical distance
 homogen.test            Classical distance-based test for homogeneity
                         against clustering
+hprabclust              Clustering of species ranges from
+                        presence-absence matrices (hierarchical
+                        methods)
 incmatrix               Nestedness matrix
 jaccard                 Jaccard distance matrix
 kulczynski              Kulczynski distance matrix
@@ -15,15 +21,20 @@ kykladspecreg           Snail presence-absence data from Aegean sea
 lcomponent              Largest connectivity component
 nb                      Neighborhood list for Aegean islands
 nbtest                  Test of neighborhood list
-NNclean                 Nearest neighbor based clutter/noise detection
 nn                      Mean distance to kth nearest neighbor
+piecewiselin            Piecewise linear transformation for distance
+                        matrices
 pop.sim                 p-value simulation for presence-absence
                         matrices clustering test
 prabclust               Clustering of species ranges from
-                        presence-absence matrices
-prabinit                Presence-absence matrix initialization
+                        presence-absence matrices (mixture method)
+prabinit                Presence-absence/abundance matrix
+                        initialization
 prabtest                Parametric bootstrap test for clustering in
                         presence-absence matrices
+qkulczynski             Quantitative Kulczynski distance matrix
 randpop.nb              Simulation of presence-absence matrices
                         (non-clustered)
 summary.prabtest        Print and summary method for prabtest
+waterdist               Overwater distances between islands in the
+                        Aegean sea

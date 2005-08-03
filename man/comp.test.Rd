@@ -25,11 +25,12 @@ comp.test(cl,spg)
 
 \references{
 Hausdorf, B. and Hennig, C. (2003)  Biotic Element Analysis in
-Biogeography. To appear in  \emph{Systematic Biology}.
+Biogeography. \emph{Systematic Biology} 52, 717-723.
 }
 \author{Christian Hennig
-  \email{hennig@math.uni-hamburg.de}
-  \url{http://www.math.uni-hamburg.de/home/hennig/}}
+  \email{chrish@stats.ucl.ac.uk}
+  \url{http://www.homepages.ucl.ac.uk/~ucakche}}
+
 
 \seealso{
   \code{\link{chisq.test}}, \code{\link{prabclust}}.

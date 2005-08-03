@@ -1,6 +1,7 @@
 "prabinit" <-
 function(file=NULL, prabmatrix=NULL, 
                      rows.are.species=TRUE, neighborhood="none",
+                     geodist=NULL, gtf=0.1, 
                      distance="kulczynski", toprab=FALSE, toprabp=0.05,
                      outc=5.2){
   if (is.null(prabmatrix))
@@ -30,6 +31,7 @@ function(file=NULL, prabmatrix=NULL,
   nbtest(nb, n.regions)
   if(toprab){
     nscut <- toprabp*specperreg
+    if (toprabp==0) nscut <- min(m1[m1>0])/10
     minno <- c()
     for (i in 1:n.species){
       g0 <- log(m1[,i][m1[,i]>0])
@@ -44,11 +46,13 @@ function(file=NULL, prabmatrix=NULL,
   distmat <- switch(distance,
                     kulczynski = kulczynski(m1),
                     jaccard = jaccard(m1),
-                    simpson = simpsond(m1),
+                    geco = geco(m1,geodist, tf=gtf),
+                    qkulczynski = qkulczynski(m1), 
                     none = NULL)
   out <- list(distmat=distmat, prab=m1, nb=nb, regperspec=regperspec,
               specperreg=specperreg, n.species=n.species, n.regions=n.regions,
-              distance=distance, spatial=(!identical(neighborhood,"none")))
+              distance=distance, geodist=geodist, gtf=gtf,
+              spatial=(!identical(neighborhood,"none")))
   class(out) <- "prab"
   out
 }

@@ -2,7 +2,8 @@
 \alias{prabclust}
 \alias{print.prabclust}
 %- Also NEED an `\alias' for EACH other topic documented here.
-\title{Clustering of species ranges from presence-absence matrices}
+\title{Clustering of species ranges from presence-absence matrices
+  (mixture method)}
 \description{
   Clusters a presence-absence matrix object by calculating an MDS from
   the distances, and applying maximum likelihood Gaussian mixtures clustering
@@ -20,7 +21,7 @@
 
 \usage{
 prabclust(prabobj, mdsmethod = "classical", mdsdim = 4, nnk =
-ceiling(prabobj$n.species/40), nclus = 0:9, modelid = "noVVV")
+ceiling(prabobj$n.species/40), nclus = 0:9, modelid = "all")
 
 \method{print}{prabclust}(x, bic=FALSE, ...)
 }
@@ -40,7 +41,8 @@ ceiling(prabobj$n.species/40), nclus = 0:9, modelid = "noVVV")
   \item{nclus}{vector of integers. Numbers of clusters to perform the
     mixture estimation.}
   \item{modelid}{string. Model name for \code{EMclustN} (see the
-    corresponding help page). Additionally, \code{"noVVV"} is possible, which
+    corresponding help page). \code{modelid="all"} compares all possible
+    models. Additionally, \code{"noVVV"} is possible, which
     fits all methods except \code{"VVV"}.}
   \item{x}{object of class \code{prabclust}. Output of
     \code{prabclust}.}
@@ -71,8 +73,10 @@ ceiling(prabobj$n.species/40), nclus = 0:9, modelid = "noVVV")
     noise as well) by \code{"N"}. } 
 }
 \references{
-Hennig, C. and Hausdorf, B. (2002) Distance-based parametric bootstrap
-tests for clustering of species ranges, submitted,
+Hennig, C. and Hausdorf, B. (2004) Distance-based parametric bootstrap
+tests for clustering of species ranges. \emph{Computational Statistics
+  and
+  Data Analysis} 45, 875-896.
 \url{http://stat.ethz.ch/Research-Reports/110.html}.
 }
 \note{
@@ -80,16 +84,23 @@ tests for clustering of species ranges, submitted,
   we prefer the new default \code{mdsmethod="classical"} now, because we
   discovered some numerical instabilities of the
   \code{isoMDS}-implementation in connection with our distance matrices.
+
+  Sometimes, \code{prabclust} produces an error because \code{EMclustN}
+  cannot handle all models properly. In this case we recommend to change
+  the \code{modelid} parameter. \code{"noVVV"} and \code{"VVV"} are
+  reasonable alternative choices (one of these is expected to reproduce
+  the error, but the other one might work).
   }
+
 \author{Christian Hennig
-  \email{hennig@math.uni-hamburg.de}
-  \url{http://www.math.uni-hamburg.de/home/hennig/}}
+  \email{chrish@stats.ucl.ac.uk}
+  \url{http://www.homepages.ucl.ac.uk/~ucakche}}
 
 \seealso{
   \code{\link[mclust]{EMclustN}}, \code{\link[mclust]{summary.EMclustN}},
   \code{\link{NNclean}}, \code{\link{cmdscale}},
   \code{\link{isoMDS}}, \code{\link{sammon}},
-  \code{\link{prabinit}}.
+  \code{\link{prabinit}}, \code{\link{hprabclust}}.
 }
 
 \examples{

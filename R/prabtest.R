@@ -3,12 +3,13 @@ function(x, teststat="distratio",tuning=switch(teststat,distratio=0.25,
                         lcomponent=floor(3*ncol(x$distmat)/4),
                         isovertice=ncol(x$distmat),nn=4,NA), times=1000,
                         pd=NULL,
-                      prange=c(0,1), nperp=4, step=0.1, twostep=TRUE,
+                      prange=c(0,1), nperp=4, step=0.1, step2=0.01,
+         twostep=TRUE,
                       sf.sim=FALSE, sf.const=sf.sim,
          pdfnb=FALSE){
   if (is.null(pd) & x$spatial)
     ac <- autoconst(x, twostep=twostep, prange=prange, nperp=nperp,
-                    step1=step, species.fixed=sf.const)
+                    step1=step, step2=step2, species.fixed=sf.const)
   else{
     if (is.null(pd))
       pd <- 1
@@ -17,7 +18,7 @@ function(x, teststat="distratio",tuning=switch(teststat,distratio=0.25,
 #  if (!is.logical(pdfnb))
 #    pdfnb <- nbdiag(x,pd=ac$pd,plot=FALSE)$pdfnb
   psim <- pop.sim(x$prab,x$nb,teststat=teststat, h0c=ac$pd,
-                  dist=x$distance,
+                  dist=x$distance, geodist=x$geodist, gtf=x$gtf,
                   times=times, testc=tuning, n.species=x$n.species,
                   specperreg=x$specperreg, regperspec=x$regperspec,
                   species.fixed=sf.sim, pdfnb=pdfnb)
@@ -25,7 +26,7 @@ function(x, teststat="distratio",tuning=switch(teststat,distratio=0.25,
               p.value=ifelse(teststat=="inclusions", 
               psim$p.above,psim$p.below), tuning=tuning, pd=ac$pd,
               reg=ac$coef,
-              teststat=teststat, distance=x$distance, times=times,
+              teststat=teststat, distance=x$distance, gtf=x$gtf, times=times,
               pdfnb=pdfnb)
   class(out) <- "prabtest"
   out

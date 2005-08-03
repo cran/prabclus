@@ -29,9 +29,10 @@ con.comp(comat)
 }
 
 \author{Christian Hennig
-  \email{hennig@math.uni-hamburg.de}
-  \url{http://www.math.uni-hamburg.de/home/hennig/}
-}
+  \email{chrish@stats.ucl.ac.uk}
+  \url{http://www.homepages.ucl.ac.uk/~ucakche}}
+
+
 
 \seealso{
   \code{\link{hclust}}, \code{\link{cutree}} for cutted single linkage

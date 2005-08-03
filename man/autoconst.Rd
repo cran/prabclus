@@ -13,7 +13,7 @@
 }
 \usage{
 autoconst(x, prange = c(0, 1), twostep = TRUE, step1 = 0.1,
-step2 = 0.01, plot = TRUE, nperp = 4, ejprob = NA,
+step2 = 0.01, plot = TRUE, nperp = 4, ejprob = NULL,
 species.fixed = TRUE, pdfnb=FALSE)
 
 autoreg(x, probs, ejprob, plot = TRUE, nperp = 4, species.fixed = TRUE,
@@ -87,9 +87,10 @@ land snail ranges as a consequence of differential immigration from
 Pleistocene glacial refuges. \emph{Oecologia} 135, 102-109.
 
 }
+
 \author{Christian Hennig
-  \email{hennig@math.uni-hamburg.de}
-  \url{http://www.math.uni-hamburg.de/home/hennig/}}
+  \email{chrish@stats.ucl.ac.uk}
+  \url{http://www.homepages.ucl.ac.uk/~ucakche}}
 
 \seealso{
   \code{\link{randpop.nb}}, \code{\link{prabinit}}, \code{\link{con.comp}} 
@@ -107,7 +108,7 @@ data(nb)
 #                   skip=i-1,nlines=1)))
 set.seed(1234)
 x <- prabinit(prabmatrix=kykladspecreg, neighborhood=nb)
-ax <- autoconst(x,nperp=2)
+ax <- autoconst(x,nperp=2,step1=0.3,twostep=FALSE)
 }
 \keyword{spatial}% at least one, from doc/KEYWORDS
 
