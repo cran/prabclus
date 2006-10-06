@@ -11,7 +11,7 @@ geo2neighbor(geodist,cut=0.1*max(geodist))
 }
 %- maybe also `usage' for other objects documented here.
 \arguments{
-  \item{geodist}{\code{dist}-object or symmetric non-negative mmatrix.
+  \item{geodist}{\code{dist}-object or symmetric non-negative matrix.
     Geographical distances between regions.}
   \item{cut}{non-negative numerical. All pairs of regions with
     \code{distance<=cut} are treated as neighbors.}

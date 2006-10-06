@@ -63,7 +63,7 @@ tests for clustering of species ranges. \emph{Computational Statistics
 Hausdorf, B. and Hennig, C. (2003)  Biotic Element Analysis in
 Biogeography. \emph{Systematic Biology} 52, 717-723.
 
-Hausdorf, B. and Hennig, C. (2003) Nestedness of nerth-west European
+Hausdorf, B. and Hennig, C. (2003) Nestedness of north-west European
 land snail ranges as a consequence of differential immigration from
 Pleistocene glacial refuges. \emph{Oecologia} 135, 102-109.
 }

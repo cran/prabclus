@@ -9,7 +9,7 @@
 }
 \usage{
 NNclean(data, k, distances = NULL, edge.correct = FALSE, wrap = 0.1,
-convergence = 0.001, plot=FALSE)
+convergence = 0.001, plot=FALSE, quiet=TRUE)
 
 \method{print}{nnclean}(x, ...)
 }
@@ -30,6 +30,8 @@ convergence = 0.001, plot=FALSE)
   \item{convergence}{numerical. Convergence criterion for EM-algorithm.}
   \item{plot}{logical. If \code{TRUE}, a histogram of the distance to
     kth nearest neighbor and fit is plotted.}
+  \item{quiet}{logical. If \code{FALSE}, the likelihood is printed
+    during the iterations.}
   \item{x}{object of class \code{nnclean}.}
   \item{...}{necessary for print methods.}
 }

@@ -4,7 +4,7 @@ function(prabobj, mdsmethod="classical", mdsdim=4,
                       modelid="all"){
 #  require(mva)
   require(MASS)
-  require(mclust)
+  require(mclust02)
   dm <- prabobj$distmat
   if (mdsmethod!="classical"){
     mindm <- min(dm[dm>0])/10

@@ -16,7 +16,7 @@ geco(regmat,geodist=as.dist(matrix(as.integer(!diag(nrow(regmat)))),
 %- maybe also `usage' for other objects documented here.
 \arguments{
   \item{regmat}{0-1-matrix. Columns are species, rows are regions.}
-  \item{geodist}{\code{dist}-object or symmetric non-negative mmatrix.
+  \item{geodist}{\code{dist}-object or symmetric non-negative matrix.
     Geographical distances between regions.}
   \item{transform}{transformation applied to the distances before
     computation of geco coefficient, see details. "piece" means
@@ -35,7 +35,7 @@ geco(regmat,geodist=as.dist(matrix(as.integer(!diag(nrow(regmat)))),
   between region where species 2 is present and closest region where
   species 1 is present). 'closest' to a region could be the regions
   itself. 
-  It is recommended (Hennig and Hausdorf, 2005) to transform the
+  It is recommended (Hennig and Hausdorf, 2006) to transform the
   distances first, because the differences between large distances are
   usually not meaningful or at least much less meaningful than
   differences between small distances for dissimilarity measurement
@@ -50,9 +50,9 @@ geco(regmat,geodist=as.dist(matrix(as.integer(!diag(nrow(regmat)))),
 }
 
 \references{
-  Hennig, C. and Hausdorf, B. (2005)  A robust distance coefficient
-  between distribution areas incorporating geographic distances. To
-  appear in \emph{Systematic Biology}.
+  Hennig, C. and Hausdorf, B. (2006)  A robust distance coefficient
+  between distribution areas incorporating geographic distances.
+  \emph{Systematic Biology} 55 (2006), 170-175.
 }
 
 \author{Christian Hennig

@@ -7,7 +7,7 @@
 \description{
   Clusters a presence-absence matrix object by calculating an MDS from
   the distances, and applying maximum likelihood Gaussian mixtures clustering
-  with "noise" (package \code{mclust}) to the MDS points. The solution
+  with "noise" (package \code{mclust02}) to the MDS points. The solution
   is plotted. A standard execution will be \cr
   \code{prabmatrix <- prabinit(file="path/prabmatrixfile",
     neighborhood="path/neighborhoodfile")}\cr
@@ -90,14 +90,21 @@ tests for clustering of species ranges. \emph{Computational Statistics
   the \code{modelid} parameter. \code{"noVVV"} and \code{"VVV"} are
   reasonable alternative choices (one of these is expected to reproduce
   the error, but the other one might work).
-  }
+ 	
+  The mclust package used by this function has recently been updated to 3.0.0.
+  \code{prabclust} at the moment requires one of the previous versions
+  of mclust. The newest one is now available as mclust02 on CRAN. If you
+  have an older version of mclust installed, which is still named
+  "mclust", you have to change \code{require(mclust02)} in the function to
+  \code{require(mclust)}.  
+}
 
 \author{Christian Hennig
   \email{chrish@stats.ucl.ac.uk}
   \url{http://www.homepages.ucl.ac.uk/~ucakche}}
 
 \seealso{
-  \code{\link[mclust]{EMclustN}}, \code{\link[mclust]{summary.EMclustN}},
+  \code{\link[mclust02]{EMclustN}}, \code{\link[mclust02]{summary.EMclustN}},
   \code{\link{NNclean}}, \code{\link{cmdscale}},
   \code{\link{isoMDS}}, \code{\link{sammon}},
   \code{\link{prabinit}}, \code{\link{hprabclust}}.

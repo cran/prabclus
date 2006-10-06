@@ -16,6 +16,8 @@ jaccard(regmat)
   The Jaccard distance between two species is 1-(number of regions where
   both species are present)/(number of regions where at least one
   species is present).
+
+  Thank you to Laurent Buffat for improving this function!
 }
 \value{
   A symmetrical matrix of Jaccard distances.

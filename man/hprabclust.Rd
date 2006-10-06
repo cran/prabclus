@@ -51,8 +51,8 @@ hprabclust(prabobj, cutdist=0.4, cutout=cutdist,
   \item{cutout}{see above.}
   \item{nnout}{see above.}
   \item{noisen}{number of points minus \code{cutout}-outliers.}
-  \item{symbols}{vector of characters, similar to \code{clustering}, but
-    indicating estimated noise by \code{"N"}.}
+  \item{symbols}{vector of characters corresponding to \code{rclustering}, but
+    estimated noise by \code{"N"}.}
   \item{hclustering}{output of \code{hclust}.}
 }
 

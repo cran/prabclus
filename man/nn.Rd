@@ -11,7 +11,7 @@ nn(distmat, ne = 1)
 }
 %- maybe also `usage' for other objects documented here.
 \arguments{
-  \item{distmat}{symmetric distance matrix.}
+  \item{distmat}{symmetric distance matrix (not a \code{dist}-object).}
   \item{ne}{integer.}
 }
 \value{
