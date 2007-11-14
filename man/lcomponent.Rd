@@ -35,8 +35,6 @@ tests for clustering of species ranges. \emph{Computational Statistics
 
 \examples{
 data(kykladspecreg)
-# Note: If you do not use the installed package, replace this by
-# kykladspecreg <- read.table("(path/)kykladspecreg.dat")
 j <- jaccard(t(kykladspecreg))
 lcomponent(j)
 }

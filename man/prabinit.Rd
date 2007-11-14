@@ -8,7 +8,8 @@
   \code{prabinit} converts a matrix into an object
   of class \code{prab} (presence-absence). The matrix may be read from a
   file or an R-object. It may be a 0-1 matrix or a matrix with
-  non-negative entries from which a 0-1 matrix can be generated.
+  non-negative entries (usually abundances) from which a 0-1 matrix 
+  can be generated.
   \code{print.prab} is a print method for such
   objects. 
 }
@@ -47,7 +48,8 @@ distance = "kulczynski", toprab = FALSE, toprabp
   \item{gtf}{tuning constant for geco-distance if \code{distance="geco"},
     see \code{geco}.}
   \item{distance}{\code{"kulczynski"}, \code{"jaccard"}, \code{"geco"},
-    \code{"qkulczynski"} or
+    \code{"qkulczynski"}, \code{"logkulczynski"} (this calls function
+    \code{qkulczynski} with \code{log.distance=TRUE}), or
     \code{"none"}. The distance measure
     between species to compute by \code{prabinit}.}
   \item{toprab}{logical. If \code{TRUE}, a presence-absence matrix is
@@ -67,22 +69,32 @@ distance = "kulczynski", toprab = FALSE, toprabp
   \item{...}{necessary for print method.}
 }
 
+\details{
+  Species that are absent in all regions are omitted.}
+ 
 \value{
   An object of class \code{prab}, which is a list with components
   \item{distmat}{distance matrix between species.}
-  \item{prab}{presence-absence matrix. Rows are regions, columns are
+  \item{prab}{presence-absence or abundance matrix. Rows are regions, 
+    columns are
     species.}
   \item{nb}{neighborhood list, see above.}
   \item{regperspec}{vector of the number of regions occupied by a
     species.}
   \item{specperreg}{vector of the number of species present in a region.}
-  \item{n.species}{number of species.}
+  \item{n.species}{number of species (in the \code{prab}-object, see 
+    \code{nonzero}).}
   \item{n.regions}{number of regions.}
   \item{distance}{string denoting the chosen distance measure.}
   \item{geodist}{non-negative matrix. see above.}
   \item{gtf}{numeric. see above.}
   \item{spatial}{\code{TRUE}, if there is a specified neighborhood
-    structure.}  
+    structure.} 
+  \item{nonzero}{logical vector. The length is the number of species
+    in the original file/matrix. If \code{FALSE}, the corresponding species 
+    had only zero entries and was therefore absent. Note that these species
+    are not included in any other component of a \code{prab} object, i.e.,
+    \code{n.species} is the number of \code{TRUE}-entries in \code{nonzero}.} 
 }
 
 \author{Christian Hennig
@@ -98,14 +110,7 @@ distance = "kulczynski", toprab = FALSE, toprabp
 # x <- prabinit(file="path/prabmatrixfile",
 # neighborhood="path/neighborhoodfile")
 data(kykladspecreg)
-# Note: If you do not use the installed package, replace this by
-# kykladspecreg <- read.table("(path/)kykladspecreg.dat")
 data(nb)
-# Note: If you do not use the installed package, replace this by
-# nb <- list()
-# for (i in 1:34)
-#   nb <- c(nb,list(scan(file="(path/)nb.dat",
-#                   skip=i-1,nlines=1)))
 prabinit(prabmatrix=kykladspecreg, neighborhood=nb)
 }
 \keyword{spatial}% at least one, from doc/KEYWORDS

@@ -98,14 +98,7 @@ tests for clustering of species ranges. \emph{Computational Statistics
 
 \examples{
 data(kykladspecreg)
-# Note: If you do not use the installed package, replace this by
-# kykladspecreg <- read.table("(path/)kykladspecreg.dat")
 data(nb)
-# Note: If you do not use the installed package, replace this by
-# nb <- list()
-# for (i in 1:34)
-#   nb <- c(nb,list(scan(file="(path/)nb.dat",
-#                   skip=i-1,nlines=1)))
 set.seed(1234)
 x <- prabinit(prabmatrix=kykladspecreg, neighborhood=nb)
 ax <- autoconst(x,nperp=2,step1=0.3,twostep=FALSE)

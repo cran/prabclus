@@ -7,12 +7,15 @@
   abundance matrix.
 }
 \usage{
-qkulczynski(regmat)
+qkulczynski(regmat, log.distance=FALSE)
 }
 %- maybe also `usage' for other objects documented here.
 \arguments{
   \item{regmat}{(non-negative) abundance matrix. Columns are species,
     rows are regions.}
+  \item{log.distance}{logical. If \code{TRUE}, 1 is added to the
+    abundance matrix and then the logs of the values are taken in order
+    to compute the distance.}
 }
 \details{
   The quantitative Kulczynski distance between two species

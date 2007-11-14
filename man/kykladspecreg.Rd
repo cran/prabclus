@@ -11,9 +11,10 @@
 \format{
   A 0-1 matrix with 80 rows and 34 columns.}
 \source{
-  Hausdorf, B. and Hennig, C. (2002) Biogeographical tests of the
-  Importance of Vicariance in the Diversification of Mediterranean Land
-  Snails. Submitted. 
+  B. Hausdorf and C. Hennig (2005) The influence of recent geography,
+  palaeography and climate on the composition of the faune of the
+  central Aegean Islands. \emph{Biological Journal of the Linnean
+    Society} 84, 785-795.
 }
 \details{
   Reads from example data file \code{kykladspecreg.dat}.
@@ -25,8 +26,6 @@
   }
 \examples{
 data(kykladspecreg)
-# Note: If you do not use the installed package, replace this by
-# kykladspecreg <- read.table("(path/)kykladspecreg.dat")
 }
 \keyword{datasets}
 % \keyword{spatial}

@@ -42,8 +42,6 @@ tests for clustering of species ranges.
 
 \examples{
 data(kykladspecreg)
-# Note: If you do not use the installed package, replace this by
-# kykladspecreg <- read.table("(path/)kykladspecreg.dat")
 j <- jaccard(t(kykladspecreg))
 distratio(j)
 }

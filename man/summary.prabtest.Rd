@@ -7,13 +7,21 @@
   Useful compression of the results of \code{prabtest}.
 }
 \usage{
-summary.prabtest(object, ...)
+\method{summary}{prabtest}(object, above.p=object$teststat \%in\%
+         c("groups","inclusions","mean"),
+         group.outmean=FALSE,...)
 
 \method{print}{summary.prabtest}(x, ...)
 }
 %- maybe also `usage' for other objects documented here.
 \arguments{
   \item{object}{object of class \code{prabtest}.}
+  \item{above.p}{logical. \code{TRUE} means that for output from
+    \code{abundtest} the p-value is
+    \code{p.above}, otherwise \code{p.below}.}
+  \item{group.outmean}{logical. If \code{TRUE} and
+    \code{object$teststat="groups"}, statistics concerning the mean of
+    all dissimilarities are given out by \code{print.summary.prabtest}.}    
   \item{x}{object of class \code{summary.prabtest}.}
   \item{\dots}{no meaning, necessary for print and summary methods.}
 }
@@ -25,26 +33,27 @@ summary.prabtest(object, ...)
     of \code{object}.}
   \item{rmean}{mean of the simulation results (test statistic values)
     of \code{object}.}
-  \item{datac, p.value, pd, tuning, teststat, distance, times, pdfnb}{directly
-    taken from \code{object}, see \code{prabtest}.}
+  \item{datac, p.value, pd, tuning, teststat, distance, times, pdfnb,
+    abund, sarlambda}{directly
+    taken from \code{object}, see \code{prabtest} and \code{abundtest}.}
+  \item{groupinfo}{if \code{object$teststat="groups"}, components
+    \code{rrangeg} (matrix of group-wise ranges of test statistic
+    value), \code{rmeang} (vector of group-wise means of test statistic
+    value), \code{rrangem} (range over simulations of overall mean of
+    within-group dissimilarities), \code{rmeanm} (mean over simulations
+    of overall mean of within-group dissimilarities) are added to the
+    list \code{object$groupinfo}, and this is given out.}
 }
 
 \author{Christian Hennig
   \email{chrish@stats.ucl.ac.uk}
   \url{http://www.homepages.ucl.ac.uk/~ucakche}}
 
-\seealso{\code{\link{prabtest}}}
+\seealso{\code{\link{prabtest}}, \code{\link{abundtest}}}
 
 \examples{
 data(kykladspecreg)
-# Note: If you do not use the installed package, replace this by
-# kykladspecreg <- read.table("(path/)kykladspecreg.dat")
 data(nb)
-# Note: If you do not use the installed package, replace this by
-# nb <- list()
-# for (i in 1:34)
-#   nb <- c(nb,list(scan(file="(path/)nb.dat",
-#                   skip=i-1,nlines=1)))
 set.seed(5678)
 kprab <- prabinit(prabmatrix=kykladspecreg, neighborhood=nb)
 kpt <- prabtest(kprab, times=5, pd=0.35, teststat="lcomponent")

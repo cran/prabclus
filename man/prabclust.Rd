@@ -7,8 +7,9 @@
 \description{
   Clusters a presence-absence matrix object by calculating an MDS from
   the distances, and applying maximum likelihood Gaussian mixtures clustering
-  with "noise" (package \code{mclust02}) to the MDS points. The solution
-  is plotted. A standard execution will be \cr
+  with "noise" (package \code{mclust}) to the MDS points. The solution
+  is plotted. A standard execution (using thye default distance of
+  \code{prabinit}) will be \cr
   \code{prabmatrix <- prabinit(file="path/prabmatrixfile",
     neighborhood="path/neighborhoodfile")}\cr
   \code{clust <- prabclust(prabmatrix)}\cr
@@ -16,12 +17,17 @@
   \bold{Note:} Data formats are described
   on the \code{prabinit} help page. You may also consider the example datasets
   \code{kykladspecreg.dat} and \code{nb.dat}. Take care of the
-  parameter \code{rows.are.species} of \code{prabinit}.
+  parameter \code{rows.are.species} of \code{prabinit}.\cr
+  \bold{Note:} \code{prabclust} calls the function
+  \code{\link[mclust]{mclustBIC}} in package mclust. Its use is
+  protected by a special license, see
+  \url{http://www.stat.washington.edu/mclust/license.txt}, particularly
+  point 6. An alternative is the use of \code{\link{hprabclust}}.
 }
 
 \usage{
 prabclust(prabobj, mdsmethod = "classical", mdsdim = 4, nnk =
-ceiling(prabobj$n.species/40), nclus = 0:9, modelid = "all")
+ceiling(prabobj$n.species/40), nclus = 0:9, modelid = "all", permutations=0)
 
 \method{print}{prabclust}(x, bic=FALSE, ...)
 }
@@ -37,13 +43,27 @@ ceiling(prabobj$n.species/40), nclus = 0:9, modelid = "all")
     non-metric MDS.}
   \item{mdsdim}{integer. Dimension of the MDS points.}
   \item{nnk}{integer. Number of nearest neighbors to determine the
-    initial noise estimation by \code{NNclean}.}
+    initial noise estimation by \code{NNclean}. \code{nnk=0} fits the
+    model without a noise component.}
   \item{nclus}{vector of integers. Numbers of clusters to perform the
     mixture estimation.}
-  \item{modelid}{string. Model name for \code{EMclustN} (see the
-    corresponding help page). \code{modelid="all"} compares all possible
+  \item{modelid}{string. Model name for \code{mclustBIC} (see the
+    corresponding help page; all models or combinations of models
+    mentioned there are possible). \code{modelid="all"} compares all possible
     models. Additionally, \code{"noVVV"} is possible, which
     fits all methods except \code{"VVV"}.}
+  \item{permutations}{integer. It has been found occasionally that
+    depending on the order of observations the algorithms \code{isoMDS}
+    and \code{mclustBIC} converge to different solutions. This is
+    because these methods require an ordering of the distances, which,
+    if equal distance values are involved, may depend on the order.
+    \code{prabclust} uses a standard ordering which should give a
+    reproducible solution in these cases as well. However, if
+    \code{permutations>0}, which gives a number of random permutations
+    of the observations, the algorithm is carried out for every
+    permutation and the best solution (in terms of the BIC, based on the
+    lowest stress MDS configuration) is given out (for many datasets
+    this won't change anything except increasing the computing time).}     
   \item{x}{object of class \code{prabclust}. Output of
     \code{prabclust}.}
   \item{bic}{logical. If \code{TRUE}, information about the BIC
@@ -57,11 +77,11 @@ ceiling(prabobj$n.species/40), nclus = 0:9, modelid = "all")
   list with components
   \item{clustering}{vector of integers indicating the cluster memberships of
     the species. Noise can be recognized by output component \code{symbols}.}
-  \item{clustsummary}{output object of \code{summary.EMclustN}. A list
+  \item{clustsummary}{output object of \code{summary.mclustBIC}. A list
     giving the optimal (according to BIC) parameters, 
     conditional probabilities `z', and loglikelihood, together with
     the associated classification and its uncertainty.}
-  \item{bicsummary}{output object of \code{EMclustN}. Bayesian Information
+  \item{bicsummary}{output object of \code{mclustBIC}. Bayesian Information
     Criterion for the specified mixture models and numbers of clusters. }
   \item{points}{numerical matrix. MDS configuration.}
   \item{nnk}{see above.}
@@ -73,6 +93,10 @@ ceiling(prabobj$n.species/40), nclus = 0:9, modelid = "all")
     noise as well) by \code{"N"}. } 
 }
 \references{
+  Fraley, C.  and Raftery, A. E. (1998) How many clusters? Which
+  clusterin method? - Answers via Model-Based Cluster Analysis.
+  \emph{Computer Journal} 41, 578-588.
+  
 Hennig, C. and Hausdorf, B. (2004) Distance-based parametric bootstrap
 tests for clustering of species ranges. \emph{Computational Statistics
   and
@@ -81,22 +105,15 @@ tests for clustering of species ranges. \emph{Computational Statistics
 }
 \note{
   Note that we used \code{mdsmethod="kruskal"} in our publications, but
-  we prefer the new default \code{mdsmethod="classical"} now, because we
-  discovered some numerical instabilities of the
-  \code{isoMDS}-implementation in connection with our distance matrices.
+  \code{mdsmethod="classical"} is now the default, because of
+  occasional numerical instabilities of the \code{isoMDS}-implementation
+  for Jaccard, Kulczynski or geco distance matrices.
 
-  Sometimes, \code{prabclust} produces an error because \code{EMclustN}
+  Sometimes, \code{prabclust} produces an error because \code{mclustBIC}
   cannot handle all models properly. In this case we recommend to change
   the \code{modelid} parameter. \code{"noVVV"} and \code{"VVV"} are
   reasonable alternative choices (one of these is expected to reproduce
   the error, but the other one might work).
- 	
-  The mclust package used by this function has recently been updated to 3.0.0.
-  \code{prabclust} at the moment requires one of the previous versions
-  of mclust. The newest one is now available as mclust02 on CRAN. If you
-  have an older version of mclust installed, which is still named
-  "mclust", you have to change \code{require(mclust02)} in the function to
-  \code{require(mclust)}.  
 }
 
 \author{Christian Hennig
@@ -104,7 +121,7 @@ tests for clustering of species ranges. \emph{Computational Statistics
   \url{http://www.homepages.ucl.ac.uk/~ucakche}}
 
 \seealso{
-  \code{\link[mclust02]{EMclustN}}, \code{\link[mclust02]{summary.EMclustN}},
+  \code{\link[mclust]{mclustBIC}}, \code{\link[mclust]{summary.mclustBIC}},
   \code{\link{NNclean}}, \code{\link{cmdscale}},
   \code{\link{isoMDS}}, \code{\link{sammon}},
   \code{\link{prabinit}}, \code{\link{hprabclust}}.
@@ -112,14 +129,7 @@ tests for clustering of species ranges. \emph{Computational Statistics
 
 \examples{
 data(kykladspecreg)
-# Note: If you do not use the installed package, replace this by
-# kykladspecreg <- read.table("(path/)kykladspecreg.dat")
 data(nb)
-# Note: If you do not use the installed package, replace this by
-# nb <- list()
-# for (i in 1:34)
-#   nb <- c(nb,list(scan(file="(path/)nb.dat",
-#                   skip=i-1,nlines=1)))
 set.seed(1234)
 x <- prabinit(prabmatrix=kykladspecreg, neighborhood=nb)
 # If you want to use your own ASCII data files, use

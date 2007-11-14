@@ -6,7 +6,8 @@
   Parametric bootstrap test of a null model of i.i.d., but spatially
   autocorrelated species against clustering of the species' occupied
   areas (or alternatively nestedness). In spite of the lots of
-  parameters, a standard execution will be \cr
+  parameters, a standard execution (for the default test statistics, see
+  parameter \code{teststat} below) will be \cr
   \code{prabmatrix <- prabinit(file="path/prabmatrixfile",
     neighborhood="path/neighborhoodfile")}\cr
   \code{test <- prabtest(prabmatrix)}\cr
@@ -46,7 +47,7 @@ sf.const = sf.sim, pdfnb=FALSE)
     region is drawn from the non-neighborhood of the previous regions
     belonging to a species under generation. If \code{NA} (the default),
     \code{prabtest} estimates this by function
-    \code{autoconst}. Otherwise the next four parameters have no effect.}
+    \code{autoconst}. Otherwise the next five parameters have no effect.}
   \item{prange}{numerical range vector, lower value not smaller than 0, larger
     value not larger than 1. Range where \code{pd} is to be found. Used
     by function \code{autoconst}.}
@@ -154,14 +155,7 @@ Pleistocene glacial refuges. \emph{Oecologia} 135, 102-109.
 
 \examples{
 data(kykladspecreg)
-# Note: If you do not use the installed package, replace this by
-# kykladspecreg <- read.table("(path/)kykladspecreg.dat")
 data(nb)
-# Note: If you do not use the installed package, replace this by
-# nb <- list()
-# for (i in 1:34)
-#   nb <- c(nb,list(scan(file="(path/)nb.dat",
-#                   skip=i-1,nlines=1)))
 set.seed(1234)
 x <- prabinit(prabmatrix=kykladspecreg, neighborhood=nb)
 # If you want to use your own ASCII data files, use

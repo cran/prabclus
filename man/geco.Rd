@@ -8,8 +8,8 @@
   a geographical distance).
 }
 \usage{
-geco(regmat,geodist=as.dist(matrix(as.integer(!diag(nrow(regmat)))),
-                   nrow=nrow(regmat)),transform="piece",
+geco(regmat,geodist=as.dist(matrix(as.integer(!diag(nrow(regmat))))),
+                   transform="piece",
                    tf=0.1,
                    countmode=ncol(regmat)+1)
 }

@@ -87,11 +87,6 @@ Pleistocene glacial refuges. \emph{Oecologia} 135, 102-109.
 
 \examples{
 data(nb)
-# Note: If you do not use the installed package, replace this by
-# nb <- list()
-# for (i in 1:34)
-#   nb <- c(nb,list(scan(file="(path/)nb.dat",
-#                   skip=i-1,nlines=1)))
 set.seed(2346)
 randpop.nb(nb, p.nb=0.1, n.species=5, vector.species=c(1,10,20,30,34))
 }

@@ -90,11 +90,6 @@ tests for clustering of species ranges. \emph{Computational Statistics
 
 \examples{
 data(nb)
-# Note: If you do not use the installed package, replace this by
-# nb <- list()
-# for (i in 1:34)
-#   nb <- c(nb,list(scan(file="(path/)nb.dat",
-#                   skip=i-1,nlines=1)))
 set.seed(888)
 cluspop.nb(nb, p.nb=0.1, n.species=10, clus.specs=9, reg.group=1:17,
 vector.species=c(10))

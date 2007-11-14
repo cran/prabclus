@@ -31,11 +31,6 @@ nbtest(nblist, n.regions=length(nblist))
 
 \examples{
 data(nb)
-# Note: If you do not use the installed package, replace this by
-# nb <- list()
-# for (i in 1:34)
-#   nb <- c(nb,list(scan(file="(path/)nb.dat",
-#                   skip=i-1,nlines=1)))
 nbtest(nb)
 nb[[1]][1] <- 1
 try(nbtest(nb))

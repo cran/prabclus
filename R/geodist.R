@@ -10,8 +10,8 @@ piecewiselin <- function(distmatrix, maxdist=0.1*max(distmatrix)){
           
 # Geographic Kulczynski distance, rows are regions
 geco <- function(regmat,
-                   geodist=as.dist(matrix(as.integer(!diag(nrow(regmat)))),
-                             nrow=nrow(regmat)),transform="piece",
+                   geodist=as.dist(matrix(as.integer(!diag(nrow(regmat))))),
+                   transform="piece",
                    tf=0.1,
                    countmode=ncol(regmat)+1){
 #  print(tf)
@@ -67,45 +67,47 @@ geo2neighbor <- function(geodist,cut=0.1*max(geodist)){
 }
         
 
-# Quantitative Kulcynski distance (works also as Kulczynski distance)
-qkulczynski <- function(regmat){
-  nart <- ncol(regmat)
-  jdist <- rep(0, nart*nart)
-  dim(jdist) <- c(nart,nart)
-  for (i in 1:(nart-1)){
-#    cat("Row ",i,"\n")
-    for (j in (i+1):nart){
-      ri <- sum(regmat[,i])
-      rj <- sum(regmat[,j])
-      srij <- sum(pmin(regmat[,i],regmat[,j])) 
-      jdist[j,i] <- jdist[i,j] <- 1 - 0.5* (srij/ri + srij/rj)
-      if (is.na(jdist[i,j]))
-        cat("Warning! NA at i=",i,", j=", j,"\n")
-    }
-  }
-  jdist
-}
-
-  
-
-hprabclust <- function (prabobj, cutdist=0.4, cutout=cutdist,
-                        method="complete", nnout=2) 
+hprabclust <- function (prabobj, cutdist=0.4, cutout=1,
+                        method="average", nnout=2, mdsplot=TRUE,
+                        mdsmethod="classical") 
 {
-#    require(mva)
-#    require(MASS)
-#    require(mclust)
+    cf <- match.call()
+    if (mdsplot & mdsmethod!="classical")
+      require(MASS)
+    # "Data-alphabetical" ordering 
+    oregions <- order(prabobj$specperreg)
+    prabo1 <- prabobj$prab[oregions,]
+    ospecies <- do.call("order",as.data.frame(t(prabo1)))    
+    dma <- prabobj$distmat[ospecies,ospecies]
+    if (mdsplot){
+      mdsdim=2
+      if (mdsmethod != "classical") {
+          mindm <- min(dma[dma > 0])/10
+          for (i in 1:(prabobj$n.species - 1))
+            for (j in (i + 1):prabobj$n.species) if (dma[i, j] < mindm) 
+              dma[i, j] <- dma[j, i] <- mindm
+      }
+      mdsout <-
+        switch(mdsmethod, classical = cmdscale(dma, k = mdsdim), 
+        kruskal = isoMDS(dma, k = mdsdim), sammon = sammon(dma, 
+            k = mdsdim))
+      if (mdsmethod=="classical") mds <- mdsout
+      else mds <- mdsout$points
+    }
+    else mds <- NULL
     n <- prabobj$n.species
     nnd <- c()
     nout <- rep(TRUE,n)
     for (i in 1:n){
-      nnd[i] <- sort(prabobj$distmat[i, ])[nnout + 1]
+      nnd[i] <- sort(dma[i, ])[nnout + 1]
       if (nnd[i]>cutout) nout[i] <- FALSE
     }
     noisen <- n-sum(nout)
-    dm <- as.dist(prabobj$distmat[nout,nout])
+    dm <- as.dist(dma[nout,nout])
     cl1 <- hclust(dm, method=method)
     rclustering <- cl2 <- cutree(cl1, h=cutdist)
     nc <- max(cl2)
+#    nout[ospecies] <- nout
 #    ncl <- max(cl2)
     csum <- function(nx, cv) {
         out <- c()
@@ -115,21 +117,37 @@ hprabclust <- function (prabobj, cutdist=0.4, cutout=cutdist,
     cs <- csum(1:nc, cl2)
     ocs <- order(-cs)
     for (i in 1:nc) cl2[rclustering == ocs[i]] <- i
-    clustering <- rep(nc+1,n)
-    clustering[nout] <- cl2
+    clustering <- rep(0,n)
+    clustering[ospecies][nout] <- cl2
     nmr <- max((1:nc)[cs[ocs]>nnout])
 #    print(cs[ocs])
 #    print(nmr)
-    rclustering <- rep(nmr+1,n)
+    rclustering <- rep(0,n)
     rclustering[clustering<=nmr] <- clustering[clustering<=nmr]
     symbols <- c("N")
-    if (nmr>0) symbols <- c(sapply(1:nmr, toString),"N")
-    clsym <- symbols[rclustering]
+    if (nmr>0) symbols <- c("N", sapply(1:nmr, toString))
+    clsym <- symbols[rclustering+1]
+    if (mdsplot){
+      mds[ospecies,] <- mds
+      plot(mds[,1:2],pch=clsym)
+    }
     out <- list(clustering = clustering, rclustering=rclustering,
-                cutdist=cutdist,
+                cutdist=cutdist, method=method,
                 cutout=cutout,nnout=nnout,noisen=noisen,
-                symbols = clsym, hclustering=cl1)
+                symbols = clsym, points=mds, call=cf)
     class(out) <- "comprabclust"
     out
 }
 
+"print.comprabclust" <-
+function(x, ...){
+  cat("* Clustered presence-absence matrix * \n\n")
+  cat("Clustered by hclust with noise detection, method=: ", x$method, "\n\n")
+  cat("Distance value to cut tree:", x$cutdist,"\n")
+  cat("Minimum cluster size (below is noise):", x$nnout+1,"\n")
+  cat("Call: \n")
+  print(x$call)
+  cat("\n Cluster memberships:\n")
+  print(x$rclustering)
+  cat("\n")
+}

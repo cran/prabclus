@@ -82,14 +82,7 @@ Pleistocene glacial refuges. \emph{Oecologia} 135, 102-109.
 
 \examples{
 data(kykladspecreg)
-# Note: If you do not use the installed package, replace this by
-# kykladspecreg <- read.table("(path/)kykladspecreg.dat")
 data(nb)
-# Note: If you do not use the installed package, replace this by
-# nb <- list()
-# for (i in 1:34)
-#   nb <- c(nb,list(scan(file="(path/)nb.dat",
-#                   skip=i-1,nlines=1)))
 set.seed(1234)
 pop.sim(t(kykladspecreg), nb, times=5, h0c=0.35, teststat="nn", testc=3)
 }
