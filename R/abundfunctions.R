@@ -21,9 +21,8 @@ abundtest <- function (prabobj, teststat = "distratio", tuning = 0.25,
                         species.fixed = species.fixed)
         p.nb <- ac$pd
     }
-    else {
-        ac <- list(pd = 1, coef = NA)
-    }    
+    if (is.null(p.nb)) 
+        p.nb <- 1    
     statres <- rep(0, times)
     if (teststat=="groups"){
       groupvector <- as.factor(groupvector)
@@ -42,16 +41,16 @@ abundtest <- function (prabobj, teststat = "distratio", tuning = 0.25,
 #    rmatrix <- rankmatrix(prabobj)
     for (i in 1:times) {
         cat("Simulation run ", i)
-        if (is.null(sarestimate))
+        if (is.null(sarestimate) || teststat == "inclusions")
           mat <- randpop.nb(neighbors=prabobj$nb,
-                             p.nb = ac$pd, n.species = prabobj$n.species, 
+                             p.nb = p.nb, n.species = prabobj$n.species, 
                              vector.species = prab01$regperspec,
                              species.fixed = species.fixed, 
                              pdf.regions =
                              prab01$specperreg/sum(prab01$specperreg),
                              count = FALSE)
-        else
-          mat <- regpop.sar(prabobj, prab01, sarestimate,
+         else
+           mat <- regpop.sar(prabobj, prab01, sarestimate,
                           p.nb, count = FALSE)
         if (teststat != "inclusions"){
             if (dist == "jaccard") 
@@ -104,6 +103,7 @@ abundtest <- function (prabobj, teststat = "distratio", tuning = 0.25,
       }
     }
     else {
+        regmat <- prab01$prab
         test <- incmatrix(regmat)$ninc
         p.above <- (1 + sum(statres >= test))/(1 + times)
         p.below <- (1 + sum(statres <= test))/(1 + times)
@@ -170,7 +170,7 @@ abundtest <- function (prabobj, teststat = "distratio", tuning = 0.25,
     }
     else
       cat("Data value: ", datac, "\n")
-    if (is.null(p.nb)) sarlambda <- NULL
+    if (!prabobj$spatial || is.null(sarestimate)) sarlambda <- NULL
     else sarlambda <- sarestimate$lambda*sarestimate$nbweight
     if (teststat=="groups")
       results <- statreslist

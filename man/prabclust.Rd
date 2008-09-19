@@ -80,7 +80,9 @@ ceiling(prabobj$n.species/40), nclus = 0:9, modelid = "all", permutations=0)
   \item{clustsummary}{output object of \code{summary.mclustBIC}. A list
     giving the optimal (according to BIC) parameters, 
     conditional probabilities `z', and loglikelihood, together with
-    the associated classification and its uncertainty.}
+    the associated classification and its uncertainty. Note that the
+    numbering of clusters may differ from \code{clustering}, see
+    \code{csreorder}.}
   \item{bicsummary}{output object of \code{mclustBIC}. Bayesian Information
     Criterion for the specified mixture models and numbers of clusters. }
   \item{points}{numerical matrix. MDS configuration.}
@@ -90,7 +92,21 @@ ceiling(prabobj$n.species/40), nclus = 0:9, modelid = "all", permutations=0)
   \item{symbols}{vector of characters, similar to \code{clustering}, but
     indicating estimated noise and points belonging to
     one-point-components (which should be interpreted as some kind of
-    noise as well) by \code{"N"}. } 
+    noise as well) by \code{"N"}. }
+  \item{permchange}{logical. If \code{TRUE}, \code{permutations>0} has
+    been used and the best solution is different from the one obtained
+    by the standard ordering. (This is just for information and has no
+    further operational consequences.)}
+  \item{csreorder}{integer vector. This gives the numbering of the
+    components in \code{clustsummary} relative to
+    \code{clustering}. Usually, \code{clustering} and \code{symbols}
+    will be used, but in order to use the information in
+    \code{clustsummary} (parameter values, posterior assignment
+    probabilities etc.), it has to be taken into account that cluster
+    no. 1 in \code{clustering} corresponds to cluster
+    no. \code{csreorder[1]} in \code{clustsummary} and so on. Noise, if
+    present, is numbered 0 in \code{clustering} as well as
+    \code{clustsummary}.}
 }
 \references{
   Fraley, C.  and Raftery, A. E. (1998) How many clusters? Which

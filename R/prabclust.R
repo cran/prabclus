@@ -153,15 +153,18 @@
     cs <- csum(1:ncl, clustering)
     ocs <- order(-cs)
     for (i in 1:ncl) clustering[uclustering == ocs[i]] <- i
+    clusyms <- sapply(1:9,toString)
+    if (ncl>9)
+      clusyms <- c(clusyms, intToUtf8(97:(97+ncl-10),multiple=TRUE)) 
     if (noisec & nc == 1)
       clsym <- rep("N",prabobj$n.species)
     else {
       if (noisec){ 
-         symbols <- c("N",sapply(1:ncl, toString))
+         symbols <- c("N",clusyms)
          clsym <- symbols[clustering+1]
        }
        else{
-         symbols <- sapply(1:ncl, toString)
+         symbols <- clusyms
          clsym <- symbols[clustering]
        }
     }
@@ -171,7 +174,7 @@
     out <- list(clustering = clustering, clustsummary = skem, 
         bicsummary = kem, points = mds, nnk = nnk, mdsdim = mdsdim, 
         mdsmethod = mdsmethod, symbols = clsym, permutations=permutations,
-                permchange=permchange)
+                permchange=permchange, csreorder=ocs)
     class(out) <- "prabclust"
     out
 }
