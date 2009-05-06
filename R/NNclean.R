@@ -61,16 +61,26 @@ function (data, k, distances = NULL, edge.correct = FALSE, wrap = 0.1,
             (1 - p) * dDk(kthNND, lambda2, k = k, d = d, alpha.d = alpha.d))
         delta[is.na(delta)] <- 0
         p <- sum(delta)/n
-        lambda1 <- (k * sum(delta))/(alpha.d * sum((kthNND^d) * 
-            delta))
-        lambda2 <- (k * sum((1 - delta)))/(alpha.d * sum((kthNND^d) * 
-            (1 - delta)))
+        if (p>0)
+          lambda1 <- (k * sum(delta))/(alpha.d * sum((kthNND^d) * 
+             delta))
+        if (p<1)
+          lambda2 <- (k * sum((1 - delta)))/(alpha.d * sum((kthNND^d) * 
+              (1 - delta)))
+        if (p<=0)
+          lambda1 <- lambda2/2
+        if (p>=1)
+          lambda2 <- 2*lambda1
         loglik.old <- loglik.new
         loglik.new <- sum(-p * lambda1 * alpha.d * ((kthNND^d) * 
             delta) - (1 - p) * lambda2 * alpha.d * ((kthNND^d) * 
             (1 - delta)) + delta * k * log(lambda1 * alpha.d) + 
             (1 - delta) * k * log(lambda2 * alpha.d))
-        if (!quiet) print(loglik.new)
+        if (!quiet){
+          cat("l.new=",loglik.new," p=",p," l1=",lambda1,
+              " l2=",lambda2," ad=",alpha.d," knnd=", kthNND," delta=",delta,
+              "\n")
+        }
     }
     if (plot) {
         hist(kthNND, nclass = 20, axes = TRUE, ylab = "Estimate of Mixture", 

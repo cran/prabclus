@@ -62,8 +62,6 @@ homogen.test(distmat, ne = ncol(distmat), testdist = "erdos")
 
 \examples{
 data(kykladspecreg)
-# Note: If you do not use the installed package, replace this by
-# kykladspecreg <- read.table("(path/)kykladspecreg.dat")
 j <- jaccard(t(kykladspecreg))
 homogen.test(j, testdist="erdos")
 homogen.test(j, testdist="ling")

@@ -36,8 +36,6 @@ kulczynski(regmat)
 
 \examples{
 data(kykladspecreg)
-# Note: If you do not use the installed package, replace this by
-# kykladspecreg <- read.table("(path/)kykladspecreg.dat")
 kulczynski(t(kykladspecreg))
 }
 \keyword{cluster}% at least one, from doc/KEYWORDS

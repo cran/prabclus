@@ -17,10 +17,11 @@
 \usage{data(siskiyou)}
 \format{
   Three objects are generated:
+  \describe{
   \item{siskiyou}{numeric matrix giving the 144*6 abundance values.}
   \item{siskiyou.nb}{neighborhood list for the 6 regions.}
   \item{siskiyou.groups}{integer vector of length 144, giving group
-    memberships for the 144 species.}
+    memberships for the 144 species.}}
 }
 \source{
 Whittaker, R. H. 1960. Vegetation of the Siskiyou Mountains, Oregon and

@@ -41,8 +41,6 @@ Pleistocene glacial refuges. \emph{Oecologia} 135, 102-109.
 
 \examples{
 data(kykladspecreg)
-# Note: If you do not use the installed package, replace this by
-# kykladspecreg <- read.table("(path/)kykladspecreg.dat")
 incmatrix(t(kykladspecreg))$ninc
 }
 \keyword{spatial}% at least one, from doc/KEYWORDS

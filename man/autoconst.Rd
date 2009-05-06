@@ -28,7 +28,7 @@ pdfnb=FALSE)
   \item{twostep}{logical. If \code{TRUE}, a first estimation step is
     carried out in the whole \code{prange}, and then the final
     estimation is determined between the preliminary estimator
-    \code{-5*step2} and {+5*step2}. Else, the first simulation
+    \code{-5*step2} and \code{+5*step2}. Else, the first simulation
     determines the final estimator.}
   \item{step1}{numerical between 0 and 1. Interval length between
     subsequent choices of \code{pd} for the first simulation.}
