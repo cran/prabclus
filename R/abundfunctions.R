@@ -253,11 +253,11 @@ prab.sarestimate <- function(abmat, prab01=NULL,sarmethod="eigen",
     abundlm <- errorsarlm(logabund~region+species,data=abundreg,
                         listw=nblistw,quiet=quiet,zero.policy=TRUE,
                         method=sarmethod)
-    interc <- coef(abundlm)[1]
+    interc <- coef(abundlm)[2] # was 1
     sigma <- sqrt(summary(abundlm)$s2)
-    regeffects <- c(0,coef(abundlm)[2:abmat$n.regions])
-    speffects <- c(0,coef(abundlm)[(abmat$n.regions+1):
-                                 (abmat$n.regions+abmat$n.species-1)])
+    regeffects <- c(0,coef(abundlm)[3:(abmat$n.regions+1)]) # was one down
+    speffects <- c(0,coef(abundlm)[(abmat$n.regions+2):
+                                 (abmat$n.regions+abmat$n.species)]) # dito
     lambda <- abundlm$lambda
     nbweight <- mean(c(nblistw[[3]],recursive=TRUE))
     if (!add.lmobject) abundlm <- NULL
