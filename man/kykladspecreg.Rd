@@ -22,7 +22,8 @@
 
 \seealso{
   \code{\link{nb}} provides neighborhood information about the 34
-  islands.
+  islands. \code{\link{waterdist}} provides a geographical distance
+  matrix between the islands. 
   }
 \examples{
 data(kykladspecreg)

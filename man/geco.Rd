@@ -52,7 +52,7 @@ geco(regmat,geodist=as.dist(matrix(as.integer(!diag(nrow(regmat))))),
 \references{
   Hennig, C. and Hausdorf, B. (2006)  A robust distance coefficient
   between distribution areas incorporating geographic distances.
-  \emph{Systematic Biology} 55 (2006), 170-175.
+  \emph{Systematic Biology} 55, 170-175.
 }
 
 \author{Christian Hennig

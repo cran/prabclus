@@ -12,7 +12,7 @@
   islands.
 }
 \details{
-  Reads from example data file \code{kyklneigh.txt}.
+  Reads from example data file \code{nb.dat}.
 }
 
 \source{

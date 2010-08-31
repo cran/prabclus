@@ -6,13 +6,15 @@
   Parametric bootstrap simulation of the p-value of a test of a
   homogeneity hypothesis against clustering (or significant nestedness).
   Designed for use within
-  \code{prabtest}. The null model is defined by \code{randpop.nb}.
+  \code{\link{prabtest}}. The null model is defined by
+  \code{\link{randpop.nb}}.
 }
 \usage{
 pop.sim(regmat, neighbors, h0c = 1, times = 200, dist = "kulczynski",
 teststat = "isovertice", testc = NULL, geodist=NULL, gtf=0.1,
 n.species = ncol(regmat),
-specperreg = NULL, regperspec = NULL, species.fixed=FALSE, pdfnb=FALSE)
+specperreg = NULL, regperspec = NULL, species.fixed=FALSE, pdfnb=FALSE,
+ignore.richness=FALSE)
 }
 %- maybe also `usage' for other objects documented here.
 \arguments{
@@ -44,6 +46,10 @@ specperreg = NULL, regperspec = NULL, species.fixed=FALSE, pdfnb=FALSE)
     random from the empirical distribution of the values from
     \code{regmat}.}
   \item{pdfnb}{logical. Probability correction in \code{randpop.nb}.}
+  \item{ignore.richness}{logical. If \code{TRUE}, there is no assumption
+    of species richnesses to differ between regions in the null model.
+    Regionwise probabilities don't differ in the generation of null
+    data.}
 }
 \value{
   List with components

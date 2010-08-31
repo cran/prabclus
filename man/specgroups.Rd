@@ -21,7 +21,8 @@
 \value{
   A list with parameters 
 \item{overall}{overall average within-groups dissimilarity.}
-\item{gr}{vector of group-wise average within-group dissimilarities.}
+\item{gr}{vector of group-wise average within-group dissimilarities
+  (this will be \code{NaN} if the group size is only 1).}
 }
 
 \author{Christian Hennig

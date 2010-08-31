@@ -4,8 +4,8 @@
 \title{Estimates SAR model from log-abundance matrix of prab-object.}
 \description{ 
   This is either an interface for the function \code{\link[spdep]{errorsarlm}}
-  for abundance data stored in an object of class \code{prab}
-  implemented for use in \code{abundtest}, or, in case that spatial
+  for abundance data stored in an object of class \code{\link{prab}}
+  implemented for use in \code{\link{abundtest}}, or, in case that spatial
   information should be ignored, it estimates a two-way additive
   unreplicated linear
   model for log-abundances on factors species and region. 

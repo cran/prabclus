@@ -14,10 +14,10 @@
 \usage{
 autoconst(x, prange = c(0, 1), twostep = TRUE, step1 = 0.1,
 step2 = 0.01, plot = TRUE, nperp = 4, ejprob = NULL,
-species.fixed = TRUE, pdfnb=FALSE)
+species.fixed = TRUE, pdfnb=FALSE, ignore.richness=FALSE)
 
 autoreg(x, probs, ejprob, plot = TRUE, nperp = 4, species.fixed = TRUE,
-pdfnb=FALSE)
+pdfnb=FALSE, ignore.richness=FALSE)
 }
 %- maybe also `usage' for other objects documented here.
 \arguments{
@@ -50,6 +50,10 @@ pdfnb=FALSE)
   \item{pdfnb}{logical. If \code{TRUE}, the probabilities of the regions
     are modified according to the number of neighboring regions in
     \code{randpop.nb}, see Hennig and Hausdorf (2002), p. 5.}
+  \item{ignore.richness}{logical. If \code{TRUE}, there is no assumption
+    of species richnesses to differ between regions in the null model.
+    Regionwise probabilities don't differ in the generation of null
+    data.}
 }
 \details{
   The spatial autocorrelation parameter \code{pd}

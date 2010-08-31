@@ -19,10 +19,16 @@ kulczynski(regmat)
   present) and (number of
   regions where
   both species are present)/(number of regions where species 2 is
-  present)).
+  present)). The similarity version of this is S28 in Shi (1993).
 }
 \value{
   A symmetrical matrix of Kulczynski distances.
+}
+
+\references{
+  Shi, G. R. (1993) Multivariate data analysis in palaeoecology and
+  palaeobiogeography - a review. \emph{Palaeogeography, 
+    Palaeoclimatology, Palaeoecology} 105, 199-234.
 }
 
 \author{Christian Hennig
@@ -31,7 +37,8 @@ kulczynski(regmat)
 
 
 \seealso{
-  \code{\link{jaccard}}, \code{\link{geco}},\code{\link{qkulczynski}} 
+  \code{\link{jaccard}}, \code{\link{geco}},\code{\link{qkulczynski}} ,
+  \code{\link{dicedist}}
 }
 
 \examples{

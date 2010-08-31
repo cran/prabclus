@@ -2,6 +2,7 @@
 \alias{siskiyou}
 \alias{siskiyou.nb}
 \alias{siskiyou.groups}
+\docType{data}
 % \non_function{}
 \title{Herbs of the Siskiyou Mountains}
 \description{
