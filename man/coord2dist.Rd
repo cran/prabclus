@@ -59,7 +59,8 @@
   If \code{neighbors==TRUE}, a
   list with components
   \item{distmatrix}{distance matrix between locations. See
-    \code{output.dist} above.}
+    \code{output.dist} above. This is in km by default; the measurement
+    unit is determined by the value used for \code{radius}.}
   \item{nblist}{list with a vector for every location containing the
     numbers of its neighbors, see \code{neighbors}.}
   If \code{neighbors==FALSE}, only the distance matrix.
