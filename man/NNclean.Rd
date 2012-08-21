@@ -16,7 +16,7 @@ convergence = 0.001, plot=FALSE, quiet=TRUE)
 %- maybe also `usage' for other objects documented here.
 \arguments{
   \item{data}{numerical matrix or data frame.}
-  \item{k}{integer. Nmber of considered nearest neighbors per point.}
+  \item{k}{integer. Number of considered nearest neighbors per point.}
   \item{distances}{distance matrix object of class \code{dist}. If
     specified, it is used instead of computing distances from the data.}
   \item{edge.correct}{logical. If \code{TRUE} and the data is
@@ -47,7 +47,7 @@ convergence = 0.001, plot=FALSE, quiet=TRUE)
 }
 \value{
   \code{NNclean} returns a list of class \code{nnclean} with components
-  \item{z}{0-1-vector of lenght of the number of data points. 1 means
+  \item{z}{0-1-vector of length of the number of data points. 1 means
     cluster, 0 means noise.}
   \item{probs}{vector of estimated a priori probabilities for each point
     to belong to the cluster component.}

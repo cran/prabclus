@@ -97,9 +97,7 @@ Pleistocene glacial refuges. \emph{Oecologia} 135, 102-109.
   \emph{Oikos} 116, 818-828. 
 
   Hausdorf, B. and Hennig, C. (2010) Species Delimitation Using Dominant
-  and Codominant Multilocus Markers. \emph{Systematic Biology},
-  published online 
-  \url{http://sysbio.oxfordjournals.org/cgi/content/full/syq039?ijkey=LTDbmfF3LhbOOQY&keytype=ref}
+  and Codominant Multilocus Markers. \emph{Systematic Biology}, 59, 491-503.
   
   Hennig, C. and Hausdorf, B. (2004) Distance-based parametric bootstrap
 tests for clustering of species ranges. \emph{Computational Statistics

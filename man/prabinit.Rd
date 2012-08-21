@@ -116,9 +116,7 @@ distance = "kulczynski", toprab = FALSE, toprabp
 
 \references{
   Hausdorf, B. and Hennig, C. (2010) Species Delimitation Using Dominant
-  and Codominant Multilocus Markers. \emph{Systematic Biology},
-  published online 
-  \url{http://sysbio.oxfordjournals.org/cgi/content/full/syq039?ijkey=LTDbmfF3LhbOOQY&keytype=ref}
+  and Codominant Multilocus Markers. \emph{Systematic Biology}, 59, 491-503.
 }
 
 \seealso{\code{\link{read.table}}, \code{\link{jaccard}},
