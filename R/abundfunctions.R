@@ -213,6 +213,7 @@ build.nblist <- function(prabobj,prab01=NULL,style="C"){
     ijsum <- ijsum+prab01$regperspec[i]
   }
   nblist <- lapply(nblist,as.integer)
+  nblist[sapply(nblist, length) == 0L] <- 0L
 #  print(nblist)
   class(nblist) <- "nb"
   out <- nb2listw(nblist,style=style,zero.policy=TRUE)
