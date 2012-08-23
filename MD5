@@ -1,5 +1,4 @@
-047880c0c61088171c50f40c47538ed4 *DESCRIPTION
-32f3efd88b85c3f5cfb93f95e54d7d7b *DESCRIPTIONbackup
+fd0c60da3cf6c11ba8500009c0ad2cfd *DESCRIPTION
 a90e954c24f5e2d12f77bc865afbd330 *NAMESPACE
 9f070d14719b47e9d668a5f07ea95925 *R/NNclean.R
 6b4a4b8619cde4654c84762b41e611f1 *R/abundfunctions.R
@@ -99,6 +98,6 @@ a9b4c15e6da529adc365ab5b07a0ab1e *man/specgroups.Rd
 8a31c48615c2430a0127f3247b9fd440 *man/unbuild.charmatrix.Rd
 eba2e1723307f7fa13789b8fc95e788a *man/veronica.Rd
 c366a0dca80ff66e1188226a3c123d92 *man/waterdist.Rd
-db111899abfa2a7ab05a720dc3cee815 *tests/Examples/prabclus-Ex.Rout.save
+d2b10dc77c52853bfd53487721a950e9 *tests/Examples/prabclus-Ex.Rout.save
 c876906ee15759e67118b870ac30e8e1 *tests/prabclustests.R
-36e1ef586d91e6de6772eb52c508199f *tests/prabclustests.Rout.save
+b07dd1cbbd67dfbad403bf096bf796fa *tests/prabclustests.Rout.save
