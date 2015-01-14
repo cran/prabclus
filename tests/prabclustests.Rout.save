@@ -1,7 +1,6 @@
 
-R version 2.14.1 (2011-12-22)
-Copyright (C) 2011 The R Foundation for Statistical Computing
-ISBN 3-900051-07-0
+R version 3.1.2 (2014-10-31) -- "Pumpkin Helmet"
+Copyright (C) 2014 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -19,7 +18,9 @@ Type 'q()' to quit R.
 > library(prabclus)
 Loading required package: MASS
 Loading required package: mclust
-Package 'mclust' version 4.0
+Package 'mclust' version 4.4
+Type 'citation("mclust")' for citing this R package in publications.
+> options(digits=4)
 > 
 > data(kykladspecreg)
 > data(nb)
@@ -27,10 +28,10 @@ Package 'mclust' version 4.0
 > x <- prabinit(prabmatrix=kykladspecreg, neighborhood=nb)
 > 
 > p1 <- prabtest(x, times=3, pd=0.35, ignore.richness=TRUE)
-Simulation run  1 statistics value= 0.5810727 
-Simulation run  2 statistics value= 0.4761375 
-Simulation run  3 statistics value= 0.5021869 
-Data value:  0.4080257 
+Simulation run  1 statistics value= 0.5811 
+Simulation run  2 statistics value= 0.4761 
+Simulation run  3 statistics value= 0.5022 
+Data value:  0.408 
 > p2 <- prabtest(x, times=3, pd=0.35, teststat="lcomponent")
 Simulation run  1 statistics value= 9 
 Simulation run  2 statistics value= 19 
@@ -42,10 +43,10 @@ Simulation run  2 statistics value= 9
 Simulation run  3 statistics value= 23 
 Data value:  15 
 > p4 <- prabtest(x, times=3, pd=0.35, teststat="nn", sf.sim=TRUE)
-Simulation run  1 statistics value= 0.3598053 
-Simulation run  2 statistics value= 0.3634938 
-Simulation run  3 statistics value= 0.344054 
-Data value:  0.319214 
+Simulation run  1 statistics value= 0.3598 
+Simulation run  2 statistics value= 0.3635 
+Simulation run  3 statistics value= 0.3441 
+Data value:  0.3192 
 > p5 <- prabtest(x, times=3, pd=0.35, teststat="inclusions")
 Simulation run  1 statistics value= 470 
 Simulation run  2 statistics value= 547 
@@ -59,8 +60,8 @@ Distance:  kulczynski
 Simulation runs:  3 
 Disjunction parameter for presence-absence pattern:  0.35 
 Rows (regions) richness has been ignored by the null model.
-Statistics value for original data:  0.4080257 
-Mean for null data:  0.519799 , range:  0.4761375 0.5810727 
+Statistics value for original data:  0.408 
+Mean for null data:  0.5198 , range:  0.4761 0.5811 
 p=  0.25 
 > summary(p2)
 * Parametric bootstrap test for presence-absence data *
@@ -70,7 +71,7 @@ Distance:  kulczynski
 Simulation runs:  3 
 Disjunction parameter for presence-absence pattern:  0.35 
 Statistics value for original data:  8 
-Mean for null data:  23.66667 , range:  9 43 
+Mean for null data:  23.67 , range:  9 43 
 p=  0.25 
 > summary(p3)
 * Parametric bootstrap test for presence-absence data *
@@ -80,7 +81,7 @@ Distance:  kulczynski
 Simulation runs:  3 
 Disjunction parameter for presence-absence pattern:  0.35 
 Statistics value for original data:  15 
-Mean for null data:  13.66667 , range:  9 23 
+Mean for null data:  13.67 , range:  9 23 
 p=  1 
 > summary(p4)
 * Parametric bootstrap test for presence-absence data *
@@ -89,8 +90,8 @@ Test statistics:  nn , Tuning constant= 4
 Distance:  kulczynski 
 Simulation runs:  3 
 Disjunction parameter for presence-absence pattern:  0.35 
-Statistics value for original data:  0.319214 
-Mean for null data:  0.3557844 , range:  0.344054 0.3634938 
+Statistics value for original data:  0.3192 
+Mean for null data:  0.3558 , range:  0.3441 0.3635 
 p=  0.25 
 > summary(p5)
 * Parametric bootstrap test for presence-absence data *
@@ -100,7 +101,7 @@ Distance:  kulczynski
 Simulation runs:  3 
 Disjunction parameter for presence-absence pattern:  0.35 
 Statistics value for original data:  602 
-Mean for null data:  460.6667 , range:  365 547 
+Mean for null data:  460.7 , range:  365 547 
 p=  0.25 
 > 
 > data(veronica)
@@ -117,62 +118,26 @@ between-species distance matrix of type  jaccard .
 > 
 > library(spdep)
 Loading required package: sp
-Loading required package: boot
 Loading required package: Matrix
-Loading required package: lattice
-
-Attaching package: 'lattice'
-
-The following object(s) are masked from 'package:boot':
-
-    melanoma
-
-
-Attaching package: 'Matrix'
-
-The following object(s) are masked from 'package:base':
-
-    det
-
-Loading required package: nlme
-Loading required package: maptools
-Loading required package: foreign
-Checking rgeos availability: FALSE
- 	Note: when rgeos is not available, polygon geometry 	computations in maptools depend on gpclib,
- 	which has a restricted licence. It is disabled by default;
- 	to enable gpclib, type gpclibPermit()
-Loading required package: deldir
-deldir 0.0-19
-
-     PLEASE NOTE:  The components "delsgs" and "summary" of the 
-     object returned by deldir() are now DATA FRAMES rather than 
-     matrices (as they were prior to release 0.0-18). 
-     See help("deldir").
- 
-     PLEASE NOTE: The process for determining duplicated points
-     has changed from that used in version 0.0-9 (and previously).
-
-Loading required package: coda
 > data(siskiyou)
 > x <- prabinit(prabmatrix=siskiyou, neighborhood=siskiyou.nb,
 +             distance="logkulczynski")
 > build.nblist(x)
 > a1 <- abundtest(x, times=5, p.nb=0.0465)
-Simulation run  1Loading required package: mvtnorm
- statistics value= 0.2931001 
-Simulation run  2 statistics value= 0.3108619 
-Simulation run  3 statistics value= 0.2936485 
-Simulation run  4 statistics value= 0.3119207 
-Simulation run  5 statistics value= 0.3047833 
-Data value:  0.2789303 
+Simulation run  1 statistics value= 0.2931 
+Simulation run  2 statistics value= 0.3109 
+Simulation run  3 statistics value= 0.2936 
+Simulation run  4 statistics value= 0.3119 
+Simulation run  5 statistics value= 0.3048 
+Data value:  0.2789 
 > a2 <- abundtest(x, times=5, p.nb=0.0465, teststat="groups",
 +                 groupvector=siskiyou.groups)
-Simulation run  1 statistics value= 0.491583 
-Simulation run  2 statistics value= 0.5778683 
-Simulation run  3 statistics value= 0.5337059 
-Simulation run  4 statistics value= 0.5872741 
-Simulation run  5 statistics value= 0.6170029 
-Data value:  0.5864469 
+Simulation run  1 statistics value= 0.4916 
+Simulation run  2 statistics value= 0.5779 
+Simulation run  3 statistics value= 0.5337 
+Simulation run  4 statistics value= 0.5873 
+Simulation run  5 statistics value= 0.617 
+Data value:  0.5864 
 > # These settings are chosen to make the example execution
 > # faster; usually you will use abundtest(x).
 > summary(a1)
@@ -182,10 +147,10 @@ Test statistics:  distratio , Tuning constant= 0.25
 Distance:  logkulczynski 
 Simulation runs:  5 
 Disjunction parameter for presence-absence pattern:  0.0465 
-Neighborhood parameter lambda for SAR-model:  -0.05515275 
-Statistics value for original data:  0.2789303 
-Mean for null data:  0.3028629 , range:  0.2931001 0.3119207 
-p=  0.1666667 
+Neighborhood parameter lambda for SAR-model:  -0.05515 
+Statistics value for original data:  0.2789 
+Mean for null data:  0.3029 , range:  0.2931 0.3119 
+p=  0.1667 
 > summary(a2)
 * Parametric bootstrap test for spatial abundance data *
 
@@ -193,354 +158,301 @@ Test statistics:  groups , Tuning constant= NA
 Distance:  logkulczynski 
 Simulation runs:  5 
 Disjunction parameter for presence-absence pattern:  0.0465 
-Neighborhood parameter lambda for SAR-model:  -0.05515275 
-Mean within group distances for original data:  0.5864469 
-Mean of mean within group distances for null data:  0.5614869 , range:  0.491583 0.6170029 
+Neighborhood parameter lambda for SAR-model:  -0.05515 
+Mean within group distances for original data:  0.5864 
+Mean of mean within group distances for null data:  0.5615 , range:  0.4916 0.617 
 p=  0.5 
-  Group  7  statistics value for original data:  0.7896545 
-  Group  7  mean for null data:  0.4530944 , range:  0.4156163 0.4726504 
-  p=  0.1666667 
-  Group  16  statistics value for original data:  0.2777786 
-  Group  16  mean for null data:  0.3438456 , range:  0.2230682 0.4107018 
-  p=  0.8333333 
+  Group  7  statistics value for original data:  0.7897 
+  Group  7  mean for null data:  0.4531 , range:  0.4156 0.4727 
+  p=  0.1667 
+  Group  16  statistics value for original data:  0.2778 
+  Group  16  mean for null data:  0.3438 , range:  0.2231 0.4107 
+  p=  0.8333 
   Group  21  statistics value for original data:  1 
-  Group  21  mean for null data:  0.6663942 , range:  0.3383856 1 
+  Group  21  mean for null data:  0.6664 , range:  0.3384 1 
   p=  0.5 
-  Group  24  statistics value for original data:  0.4815124 
-  Group  24  mean for null data:  0.3202094 , range:  0.2768417 0.3745639 
-  p=  0.1666667 
-  Group  27  statistics value for original data:  0.3530351 
-  Group  27  mean for null data:  0.6446967 , range:  0.3721821 1 
+  Group  24  statistics value for original data:  0.4815 
+  Group  24  mean for null data:  0.3202 , range:  0.2768 0.3746 
+  p=  0.1667 
+  Group  27  statistics value for original data:  0.353 
+  Group  27  mean for null data:  0.6447 , range:  0.3722 1 
   p=  1 
-  Group  30  statistics value for original data:  0.2257266 
-  Group  30  mean for null data:  0.1347087 , range:  0.06729444 0.1948585 
-  p=  0.1666667 
-  Group  33  statistics value for original data:  0.7590897 
-  Group  33  mean for null data:  0.5463027 , range:  0.4448331 0.6791298 
-  p=  0.1666667 
-  Group  41  statistics value for original data:  0.5353901 
-  Group  41  mean for null data:  0.4502066 , range:  0.3350595 0.5297533 
-  p=  0.1666667 
-  Group  51  statistics value for original data:  0.7529284 
-  Group  51  mean for null data:  0.7071874 , range:  0.6229438 0.8590051 
+  Group  30  statistics value for original data:  0.2257 
+  Group  30  mean for null data:  0.1347 , range:  0.06729 0.1949 
+  p=  0.1667 
+  Group  33  statistics value for original data:  0.7591 
+  Group  33  mean for null data:  0.5463 , range:  0.4448 0.6791 
+  p=  0.1667 
+  Group  41  statistics value for original data:  0.5354 
+  Group  41  mean for null data:  0.4502 , range:  0.3351 0.5298 
+  p=  0.1667 
+  Group  51  statistics value for original data:  0.7529 
+  Group  51  mean for null data:  0.7072 , range:  0.6229 0.859 
   p=  0.5 
-  Group  61  statistics value for original data:  0.4841911 
-  Group  61  mean for null data:  0.6811666 , range:  0.4592833 1 
+  Group  61  statistics value for original data:  0.4842 
+  Group  61  mean for null data:  0.6812 , range:  0.4593 1 
   p=  0.5 
-  Group  66  statistics value for original data:  0.9123321 
-  Group  66  mean for null data:  0.9564116 , range:  0.8345053 1 
-  p=  0.8333333 
-  Group  74  statistics value for original data:  0.844221 
-  Group  74  mean for null data:  0.5460228 , range:  0.3173135 1 
-  p=  0.3333333 
-  Group  80  statistics value for original data:  0.2595207 
-  Group  80  mean for null data:  0.3406485 , range:  0.2541431 0.3816931 
-  p=  0.8333333 
-  Group  88  statistics value for original data:  0.7163128 
-  Group  88  mean for null data:  0.6213165 , range:  0.3688763 0.7708729 
+  Group  66  statistics value for original data:  0.9123 
+  Group  66  mean for null data:  0.9564 , range:  0.8345 1 
+  p=  0.8333 
+  Group  74  statistics value for original data:  0.8442 
+  Group  74  mean for null data:  0.546 , range:  0.3173 1 
+  p=  0.3333 
+  Group  80  statistics value for original data:  0.2595 
+  Group  80  mean for null data:  0.3406 , range:  0.2541 0.3817 
+  p=  0.8333 
+  Group  88  statistics value for original data:  0.7163 
+  Group  88  mean for null data:  0.6213 , range:  0.3689 0.7709 
   p=  0.5 
-  Group  96  statistics value for original data:  0.4578068 
-  Group  96  mean for null data:  0.4455149 , range:  0.4170217 0.4681508 
+  Group  96  statistics value for original data:  0.4578 
+  Group  96  mean for null data:  0.4455 , range:  0.417 0.4682 
   p=  0.5 
-  Group  99  statistics value for original data:  0.4292842 
-  Group  99  mean for null data:  0.7327695 , range:  0.5584046 0.8119257 
+  Group  99  statistics value for original data:  0.4293 
+  Group  99  mean for null data:  0.7328 , range:  0.5584 0.8119 
   p=  1 
-  Group  103  statistics value for original data:  0.4431906 
-  Group  103  mean for null data:  0.6986413 , range:  0.4645968 1 
+  Group  103  statistics value for original data:  0.4432 
+  Group  103  mean for null data:  0.6986 , range:  0.4646 1 
   p=  1 
-  Group  107  statistics value for original data:  0.5259369 
-  Group  107  mean for null data:  0.8079906 , range:  0.5825654 1 
+  Group  107  statistics value for original data:  0.5259 
+  Group  107  mean for null data:  0.808 , range:  0.5826 1 
   p=  1 
-  Group  114  statistics value for original data:  0.4325096 
-  Group  114  mean for null data:  0.4392127 , range:  0.3879106 0.489212 
-  p=  0.6666667 
-  Group  125  statistics value for original data:  0.6856382 
-  Group  125  mean for null data:  0.3744992 , range:  0.268023 0.4778988 
-  p=  0.1666667 
-  Group  127  statistics value for original data:  0.2832452 
-  Group  127  mean for null data:  0.1782127 , range:  0.1558398 0.2163713 
-  p=  0.1666667 
-  Group  140  statistics value for original data:  0.5829038 
-  Group  140  mean for null data:  0.5161468 , range:  0.3774157 0.6366168 
-  p=  0.3333333 
+  Group  114  statistics value for original data:  0.4325 
+  Group  114  mean for null data:  0.4392 , range:  0.3879 0.4892 
+  p=  0.6667 
+  Group  125  statistics value for original data:  0.6856 
+  Group  125  mean for null data:  0.3745 , range:  0.268 0.4779 
+  p=  0.1667 
+  Group  127  statistics value for original data:  0.2832 
+  Group  127  mean for null data:  0.1782 , range:  0.1558 0.2164 
+  p=  0.1667 
+  Group  140  statistics value for original data:  0.5829 
+  Group  140  mean for null data:  0.5161 , range:  0.3774 0.6366 
+  p=  0.3333 
 > 
+> options(digits=2)
 > prab.sarestimate(x)
 $sar
 [1] TRUE
 
 $intercept
 (Intercept) 
-   1.098612 
+        1.1 
 
 $sigma
-[1] 0.9975864
+[1] 1
 
 $regeffects
-                region2     region3     region4     region5     region6 
- 0.00000000 -0.05627329  0.51684801  0.68166053  0.59729622  0.83449380 
+        region2 region3 region4 region5 region6 
+  0.000  -0.056   0.517   0.682   0.597   0.834 
 
 $speffects
-                 species2     species3     species4     species5     species6 
- 0.000000000 -1.098612289 -0.405465108 -0.405465108 -0.174595908 -0.174595908 
-    species7     species8     species9    species10    species11    species12 
- 0.518551273  0.171977682 -0.377328462  2.458473326  2.463184282  2.314771765 
-   species13    species14    species15    species16    species17    species18 
- 0.796575042 -0.552300585 -0.999664680  2.854205576  3.117464079 -0.162441233 
-   species19    species20    species21    species22    species23    species24 
--1.216447189  0.825553654  0.002517123 -2.021304883 -0.640741400  2.642987069 
-   species25    species26    species27    species28    species29    species30 
- 4.344615515  3.379415755  2.724380512  2.671291343  2.730335781  1.568249328 
-   species31    species32    species33    species34    species35    species36 
- 1.883324109  2.941002067  1.748812984  2.959448137  2.596541899  2.788328341 
-   species37    species38    species39    species40    species41    species42 
- 1.039322444  0.996048970  1.413677094  1.979577407 -1.856066332  1.620710137 
-   species43    species44    species45    species46    species47    species48 
- 1.742346239  2.279283853  2.057336649  2.325874388  1.085689070  3.373029733 
-   species49    species50    species51    species52    species53    species54 
- 3.270055851  2.760964299  2.644284323 -0.102708365  1.985734464  2.321893701 
-   species55    species56    species57    species58    species59    species60 
--0.349191816 -1.042338997 -1.042338997 -1.042338997 -0.349191816  2.193988643 
-   species61    species62    species63    species64    species65    species66 
--0.635752465 -0.433019911 -1.328899645 -2.276661196 -2.350079254 -1.702264144 
-   species67    species68    species69    species70    species71    species72 
- 1.336479313  1.993097716  1.377071781  0.712727287  2.143142882 -1.615460294 
-   species73    species74    species75    species76    species77    species78 
--0.922313114 -1.615460294  0.463981247 -1.615460294  1.023597035 -0.516848006 
-   species79    species80    species81    species82    species83    species84 
--1.697866557 -1.697866557 -1.004719376 -2.502585513  1.761975368  0.643199057 
-   species85    species86    species87    species88    species89    species90 
--2.113829769  1.573506589  1.349162785  1.852965978  0.385349882  2.615895238 
-   species91    species92    species93    species94    species95    species96 
--0.203731500 -0.435334370  0.195205714 -1.503737262  0.522312274 -0.393978458 
-   species97    species98    species99   species100   species101   species102 
--1.780272819 -1.087125639 -1.780272819 -1.849662441  0.564494428 -0.071988410 
-  species103   species104   species105   species106   species107   species108 
--0.192569439 -0.392609289  1.543340357 -0.587157322  0.313982669  3.488061630 
-  species109   species110   species111   species112   species113   species114 
- 1.397058364  0.480641274  3.234134823 -0.485931804  1.835887697  0.207247388 
-  species115   species116   species117   species118   species119   species120 
--0.782166262  1.057505223  1.931410860  2.214758270 -0.597296223  0.095850958 
-  species121   species122   species123   species124   species125   species126 
- 0.701986761 -1.695908511 -1.002761331 -0.494978635  0.029932428  0.350859371 
-  species127   species128   species129   species130   species131   species132 
--0.185459030 -0.841552225  0.526558314 -0.663214753 -0.494978635 -1.467933709 
-  species133   species134   species135   species136   species137   species138 
--0.841552225  0.904532355  3.157135212  1.683375779 -0.316641163 -1.239958907 
-  species139   species140   species141   species142   species143   species144 
--1.239958907 -1.239958907  0.774944114  1.285769738 -0.323668175 -1.239958907 
+             species2   species3   species4   species5   species6   species7 
+    0.0000    -1.0986    -0.4055    -0.4055    -0.1746    -0.1746     0.5186 
+  species8   species9  species10  species11  species12  species13  species14 
+    0.1720    -0.3773     2.4585     2.4632     2.3148     0.7966    -0.5523 
+ species15  species16  species17  species18  species19  species20  species21 
+   -0.9997     2.8542     3.1175    -0.1624    -1.2164     0.8256     0.0025 
+ species22  species23  species24  species25  species26  species27  species28 
+   -2.0213    -0.6407     2.6430     4.3446     3.3794     2.7244     2.6713 
+ species29  species30  species31  species32  species33  species34  species35 
+    2.7303     1.5682     1.8833     2.9410     1.7488     2.9594     2.5965 
+ species36  species37  species38  species39  species40  species41  species42 
+    2.7883     1.0393     0.9960     1.4137     1.9796    -1.8561     1.6207 
+ species43  species44  species45  species46  species47  species48  species49 
+    1.7423     2.2793     2.0573     2.3259     1.0857     3.3730     3.2701 
+ species50  species51  species52  species53  species54  species55  species56 
+    2.7610     2.6443    -0.1027     1.9857     2.3219    -0.3492    -1.0423 
+ species57  species58  species59  species60  species61  species62  species63 
+   -1.0423    -1.0423    -0.3492     2.1940    -0.6358    -0.4330    -1.3289 
+ species64  species65  species66  species67  species68  species69  species70 
+   -2.2767    -2.3501    -1.7023     1.3365     1.9931     1.3771     0.7127 
+ species71  species72  species73  species74  species75  species76  species77 
+    2.1431    -1.6155    -0.9223    -1.6155     0.4640    -1.6155     1.0236 
+ species78  species79  species80  species81  species82  species83  species84 
+   -0.5168    -1.6979    -1.6979    -1.0047    -2.5026     1.7620     0.6432 
+ species85  species86  species87  species88  species89  species90  species91 
+   -2.1138     1.5735     1.3492     1.8530     0.3853     2.6159    -0.2037 
+ species92  species93  species94  species95  species96  species97  species98 
+   -0.4353     0.1952    -1.5037     0.5223    -0.3940    -1.7803    -1.0871 
+ species99 species100 species101 species102 species103 species104 species105 
+   -1.7803    -1.8497     0.5645    -0.0720    -0.1926    -0.3926     1.5433 
+species106 species107 species108 species109 species110 species111 species112 
+   -0.5872     0.3140     3.4881     1.3971     0.4806     3.2341    -0.4859 
+species113 species114 species115 species116 species117 species118 species119 
+    1.8359     0.2072    -0.7822     1.0575     1.9314     2.2148    -0.5973 
+species120 species121 species122 species123 species124 species125 species126 
+    0.0959     0.7020    -1.6959    -1.0028    -0.4950     0.0299     0.3509 
+species127 species128 species129 species130 species131 species132 species133 
+   -0.1855    -0.8416     0.5266    -0.6632    -0.4950    -1.4679    -0.8416 
+species134 species135 species136 species137 species138 species139 species140 
+    0.9045     3.1571     1.6834    -0.3166    -1.2400    -1.2400    -1.2400 
+species141 species142 species143 species144 
+    0.7749     1.2858    -0.3237    -1.2400 
 
 $lambda
-     lambda 
--0.07837495 
+lambda 
+-0.078 
 
 $size
 [1] 421
 
 $nbweight
-[1] 0.7037037
+[1] 0.7
 
 $lmobject
 
 Call:
-errorsarlm(formula = logabund ~ region + species, data = abundreg, 
+spdep::errorsarlm(formula = logabund ~ region + species, data = abundreg, 
     listw = nblistw, method = sarmethod, quiet = quiet, zero.policy = TRUE)
 Type: error 
 
 Coefficients:
-      lambda  (Intercept)      region2      region3      region4      region5 
--0.078374955  1.098612289 -0.056273292  0.516848006  0.681660531  0.597296223 
-     region6     species2     species3     species4     species5     species6 
- 0.834493799 -1.098612289 -0.405465108 -0.405465108 -0.174595908 -0.174595908 
-    species7     species8     species9    species10    species11    species12 
- 0.518551273  0.171977682 -0.377328462  2.458473326  2.463184282  2.314771765 
-   species13    species14    species15    species16    species17    species18 
- 0.796575042 -0.552300585 -0.999664680  2.854205576  3.117464079 -0.162441233 
-   species19    species20    species21    species22    species23    species24 
--1.216447189  0.825553654  0.002517123 -2.021304883 -0.640741400  2.642987069 
-   species25    species26    species27    species28    species29    species30 
- 4.344615515  3.379415755  2.724380512  2.671291343  2.730335781  1.568249328 
-   species31    species32    species33    species34    species35    species36 
- 1.883324109  2.941002067  1.748812984  2.959448137  2.596541899  2.788328341 
-   species37    species38    species39    species40    species41    species42 
- 1.039322444  0.996048970  1.413677094  1.979577407 -1.856066332  1.620710137 
-   species43    species44    species45    species46    species47    species48 
- 1.742346239  2.279283853  2.057336649  2.325874388  1.085689070  3.373029733 
-   species49    species50    species51    species52    species53    species54 
- 3.270055851  2.760964299  2.644284323 -0.102708365  1.985734464  2.321893701 
-   species55    species56    species57    species58    species59    species60 
--0.349191816 -1.042338997 -1.042338997 -1.042338997 -0.349191816  2.193988643 
-   species61    species62    species63    species64    species65    species66 
--0.635752465 -0.433019911 -1.328899645 -2.276661196 -2.350079254 -1.702264144 
-   species67    species68    species69    species70    species71    species72 
- 1.336479313  1.993097716  1.377071781  0.712727287  2.143142882 -1.615460294 
-   species73    species74    species75    species76    species77    species78 
--0.922313114 -1.615460294  0.463981247 -1.615460294  1.023597035 -0.516848006 
-   species79    species80    species81    species82    species83    species84 
--1.697866557 -1.697866557 -1.004719376 -2.502585513  1.761975368  0.643199057 
-   species85    species86    species87    species88    species89    species90 
--2.113829769  1.573506589  1.349162785  1.852965978  0.385349882  2.615895238 
-   species91    species92    species93    species94    species95    species96 
--0.203731500 -0.435334370  0.195205714 -1.503737262  0.522312274 -0.393978458 
-   species97    species98    species99   species100   species101   species102 
--1.780272819 -1.087125639 -1.780272819 -1.849662441  0.564494428 -0.071988410 
-  species103   species104   species105   species106   species107   species108 
--0.192569439 -0.392609289  1.543340357 -0.587157322  0.313982669  3.488061630 
-  species109   species110   species111   species112   species113   species114 
- 1.397058364  0.480641274  3.234134823 -0.485931804  1.835887697  0.207247388 
-  species115   species116   species117   species118   species119   species120 
--0.782166262  1.057505223  1.931410860  2.214758270 -0.597296223  0.095850958 
-  species121   species122   species123   species124   species125   species126 
- 0.701986761 -1.695908511 -1.002761331 -0.494978635  0.029932428  0.350859371 
-  species127   species128   species129   species130   species131   species132 
--0.185459030 -0.841552225  0.526558314 -0.663214753 -0.494978635 -1.467933709 
-  species133   species134   species135   species136   species137   species138 
--0.841552225  0.904532355  3.157135212  1.683375779 -0.316641163 -1.239958907 
-  species139   species140   species141   species142   species143   species144 
--1.239958907 -1.239958907  0.774944114  1.285769738 -0.323668175 -1.239958907 
+     lambda (Intercept)     region2     region3     region4     region5 
+    -0.0784      1.0986     -0.0563      0.5168      0.6817      0.5973 
+    region6    species2    species3    species4    species5    species6 
+     0.8345     -1.0986     -0.4055     -0.4055     -0.1746     -0.1746 
+   species7    species8    species9   species10   species11   species12 
+     0.5186      0.1720     -0.3773      2.4585      2.4632      2.3148 
+  species13   species14   species15   species16   species17   species18 
+     0.7966     -0.5523     -0.9997      2.8542      3.1175     -0.1624 
+  species19   species20   species21   species22   species23   species24 
+    -1.2164      0.8256      0.0025     -2.0213     -0.6407      2.6430 
+  species25   species26   species27   species28   species29   species30 
+     4.3446      3.3794      2.7244      2.6713      2.7303      1.5682 
+  species31   species32   species33   species34   species35   species36 
+     1.8833      2.9410      1.7488      2.9594      2.5965      2.7883 
+  species37   species38   species39   species40   species41   species42 
+     1.0393      0.9960      1.4137      1.9796     -1.8561      1.6207 
+  species43   species44   species45   species46   species47   species48 
+     1.7423      2.2793      2.0573      2.3259      1.0857      3.3730 
+  species49   species50   species51   species52   species53   species54 
+     3.2701      2.7610      2.6443     -0.1027      1.9857      2.3219 
+  species55   species56   species57   species58   species59   species60 
+    -0.3492     -1.0423     -1.0423     -1.0423     -0.3492      2.1940 
+  species61   species62   species63   species64   species65   species66 
+    -0.6358     -0.4330     -1.3289     -2.2767     -2.3501     -1.7023 
+  species67   species68   species69   species70   species71   species72 
+     1.3365      1.9931      1.3771      0.7127      2.1431     -1.6155 
+  species73   species74   species75   species76   species77   species78 
+    -0.9223     -1.6155      0.4640     -1.6155      1.0236     -0.5168 
+  species79   species80   species81   species82   species83   species84 
+    -1.6979     -1.6979     -1.0047     -2.5026      1.7620      0.6432 
+  species85   species86   species87   species88   species89   species90 
+    -2.1138      1.5735      1.3492      1.8530      0.3853      2.6159 
+  species91   species92   species93   species94   species95   species96 
+    -0.2037     -0.4353      0.1952     -1.5037      0.5223     -0.3940 
+  species97   species98   species99  species100  species101  species102 
+    -1.7803     -1.0871     -1.7803     -1.8497      0.5645     -0.0720 
+ species103  species104  species105  species106  species107  species108 
+    -0.1926     -0.3926      1.5433     -0.5872      0.3140      3.4881 
+ species109  species110  species111  species112  species113  species114 
+     1.3971      0.4806      3.2341     -0.4859      1.8359      0.2072 
+ species115  species116  species117  species118  species119  species120 
+    -0.7822      1.0575      1.9314      2.2148     -0.5973      0.0959 
+ species121  species122  species123  species124  species125  species126 
+     0.7020     -1.6959     -1.0028     -0.4950      0.0299      0.3509 
+ species127  species128  species129  species130  species131  species132 
+    -0.1855     -0.8416      0.5266     -0.6632     -0.4950     -1.4679 
+ species133  species134  species135  species136  species137  species138 
+    -0.8416      0.9045      3.1571      1.6834     -0.3166     -1.2400 
+ species139  species140  species141  species142  species143  species144 
+    -1.2400     -1.2400      0.7749      1.2858     -0.3237     -1.2400 
 
-Log likelihood: -597.1798 
+Log likelihood: -597 
 
 > regpop.sar(x, p.nb=0.046)
-        [,1]     [,2]     [,3]     [,4]     [,5]      [,6]      [,7]     [,8]
-[1,] 0.00000 0.000000 0.000000 0.000000 0.000000  0.000000  0.000000 0.000000
-[2,] 0.00000 0.000000 0.000000 0.000000 0.000000  0.000000  0.000000 0.000000
-[3,] 0.00000 0.000000 0.000000 0.000000 0.000000  5.540789  0.000000 1.477736
-[4,] 0.00000 1.671064 0.000000 0.000000 2.724431 18.222644  0.000000 2.140354
-[5,] 4.53375 0.000000 4.127822 0.000000 5.668296  0.000000  3.739642 0.000000
-[6,] 0.00000 0.000000 0.000000 3.456461 0.000000  0.000000 78.359294 0.000000
-          [,9]    [,10]    [,11]     [,12]     [,13]     [,14]    [,15]
-[1,]  0.000000  0.00000  0.00000   0.00000  0.000000  0.000000 0.000000
-[2,]  0.872144  0.00000  0.00000   0.00000  0.000000 17.264135 0.000000
-[3,] 20.788975 24.60735 11.60547  34.05810  0.000000  2.059188 0.000000
-[4,]  0.000000 23.26572  0.00000 155.45349 42.206031 16.020798 6.715664
-[5,]  0.000000  0.00000 28.54575  98.76841  9.120021  0.000000 5.517595
-[6,]  0.000000  0.00000  0.00000   0.00000 13.113807  0.000000 0.393891
-        [,16]     [,17]     [,18]     [,19]       [,20]     [,21]      [,22]
-[1,] 45.98460   0.00000 1.5813109  4.265284   0.0000000  4.373987 0.02750444
-[2,] 78.69389  66.12347 0.9039927  2.033551   0.0000000  1.376185 0.18734749
-[3,] 79.33315  16.20181 7.5171231 52.309196   3.3712033 10.580475 0.25754741
-[4,] 76.27972 256.47451 4.2534117  0.000000   8.8407278  1.497142 0.30804788
-[5,]  0.00000 236.79550 0.0000000  0.000000   0.7109072  0.000000 0.00000000
-[6,]  0.00000   0.00000 0.0000000  0.000000 102.8374628  0.000000 0.00000000
-         [,23]    [,24]      [,25]      [,26]     [,27]    [,28]      [,29]
-[1,] 0.7427688 75.98959    0.00000    0.00000   0.00000 11.15323   9.985715
-[2,] 2.9679678 43.73625   75.26011  125.78241  63.26961 94.39666   9.428561
-[3,] 4.1498599 96.42656 5493.44380  231.69684 509.11685 25.84498 210.332487
-[4,] 7.9002657 81.30777   53.57238   88.55208  19.71331 32.38942  23.837362
-[5,] 0.0000000 19.40617  414.47593   50.89230  12.55093 25.43070  81.213066
-[6,] 0.0000000  0.00000  245.77183 1378.25762 265.33266  0.00000   0.000000
-         [,30]      [,31]      [,32]     [,33]     [,34]     [,35]     [,36]
-[1,] 14.121176   0.000000   0.000000 59.242539 230.22061  83.90570  89.96098
-[2,] 20.060187  54.326617 120.736257  6.295851 106.81992  70.27833  33.65442
-[3,]  3.177522 173.436699   8.645773 39.348036 303.18169 225.23547  23.43407
-[4,] 32.930162  64.070875  80.033955 29.136913 485.75488 111.32845  71.14204
-[5,] 42.113115  33.319912  84.175207 13.120489  19.02407  18.31206 206.22708
-[6,]  0.000000   4.743083  72.658156  0.000000   0.00000   0.00000   0.00000
-         [,37]     [,38]    [,39]    [,40]     [,41]      [,42]    [,43]
-[1,]  0.000000  0.000000  0.00000 41.97810 0.0000000  24.170744  0.00000
-[2,]  6.775626  8.587524 32.79069 16.00486 0.0000000   3.641618 23.35136
-[3,] 11.576071  1.724783 19.87200 38.98618 0.0000000  45.860442 54.67545
-[4,] 15.844044  3.660130 20.98050 28.01446 0.3687858 111.797532 72.45338
-[5,]  9.527961 47.749112 22.36513 85.74559 1.3958593   3.526849 16.53134
-[6,] 16.989837  0.000000 21.84552  0.00000 0.4319748  38.087558 43.71301
-         [,44]     [,45]     [,46]     [,47]      [,48]     [,49]      [,50]
-[1,]  18.70914  62.44125  26.09089 53.259916  200.76447  33.76064   67.50165
-[2,]  54.87689  18.34805 128.34549  3.875846   34.41666 213.61377   22.11365
-[3,]  41.41977  23.97818 124.79351 17.680713 1103.28799  62.52236 1120.03089
-[4,] 123.02295  41.99069 117.56168  5.265220  488.78318  65.61376   69.02539
-[5,] 134.57964 232.24833  60.25402 11.655985   50.71525  16.04692   98.70962
-[6,]  25.97750  21.49667 104.20033  7.094121  472.81073 235.78246  259.80128
-         [,51]     [,52]     [,53]      [,54]    [,55]   [,56]    [,57]
-[1,]   0.00000 2.4548287  5.291437  47.184542 0.000000 0.00000 0.000000
-[2,]  61.94124 5.7294661 83.281960   7.448796 0.000000 0.00000 0.000000
-[3,]  60.51409 3.8714009 38.723085  58.909126 0.000000 0.00000 4.177759
-[4,] 442.83055 3.2892160 49.218005  32.473239 0.000000 0.00000 0.000000
-[5,]  91.03525 0.9095286 46.877419 251.635143 0.000000 6.54938 0.000000
-[6,] 135.65793 3.7025586 57.094803 113.240373 1.764743 0.00000 0.000000
-        [,58]    [,59]    [,60]    [,61]    [,62]     [,63]     [,64]     [,65]
-[1,] 0.000000 0.000000  0.00000 0.000000 0.000000 0.0000000 0.1623235 0.0000000
-[2,] 0.000000 0.000000  0.00000 0.000000 0.000000 0.0000000 1.1808320 0.0000000
-[3,] 0.000000 9.970845  0.00000 0.000000 0.000000 0.0000000 6.6287537 0.4954478
-[4,] 0.000000 0.000000  0.00000 0.000000 3.087654 0.0000000 0.0000000 0.1007962
-[5,] 0.000000 0.000000 12.80773 1.649946 4.671817 0.6082774 0.0000000 0.3825257
-[6,] 4.022433 0.000000 32.34714 2.348446 0.000000 1.6871732 0.0000000 0.0000000
-         [,66]    [,67]     [,68]     [,69]     [,70]     [,71]   [,72]
-[1,] 0.0000000  0.00000   0.00000  0.000000  0.000000  41.30121 0.00000
-[2,] 0.0000000  0.00000  23.82402  5.382349  4.179203  16.73178 0.00000
-[3,] 0.3968195 46.69640  30.09567 41.425961 21.676757 118.65399 0.00000
-[4,] 3.7391631 21.79237 126.19994 83.339251  6.733471  54.23792 0.00000
-[5,] 0.4398148 56.81876  19.85667 43.736445 69.284020  15.97049 2.95775
-[6,] 0.0000000 52.98576   0.00000 19.529867 32.344777   0.00000 0.00000
-        [,73]     [,74]    [,75]    [,76]    [,77]    [,78]    [,79]     [,80]
-[1,] 0.000000 0.0000000  0.00000  0.00000  0.00000 0.000000 0.000000 0.0000000
-[2,] 3.382551 0.0000000  0.00000  0.00000  0.00000 0.000000 1.164880 0.0000000
-[3,] 0.000000 0.0000000 13.19464 11.06996  0.00000 3.179256 1.027768 0.0000000
-[4,] 0.000000 0.8727818  0.00000  0.00000  0.00000 0.000000 0.000000 0.9945345
-[5,] 0.000000 0.0000000  0.00000  0.00000  0.00000 0.000000 0.000000 0.7331249
-[6,] 0.000000 0.0000000  0.00000  0.00000 41.49282 0.000000 0.000000 0.0000000
-        [,81]     [,82]     [,83]     [,84]     [,85]     [,86]    [,87]
-[1,] 0.000000 0.0000000 10.617888  0.000000 0.0000000 12.564748  0.00000
-[2,] 0.000000 0.0000000  9.707796 13.397234 0.0000000  3.234853  0.00000
-[3,] 1.982746 0.0000000  0.000000  6.907569 0.0000000  9.562419  0.00000
-[4,] 3.508087 0.2602266  0.000000  0.000000 0.5102354  0.000000 22.35023
-[5,] 0.000000 1.4721226  0.000000  0.000000 0.6134373  0.000000 38.55207
-[6,] 0.000000 0.0000000  0.000000  0.000000 0.0000000  0.000000 25.98452
-        [,88]     [,89]     [,90]      [,91]     [,92]     [,93]     [,94]
-[1,]  0.00000  0.000000   0.00000  2.6011700  0.000000  1.201474 3.6158737
-[2,] 24.64113  0.000000   0.00000  0.9035088  0.000000  3.609270 0.3910913
-[3,] 11.01645  2.152902   0.00000  9.8514142  1.013111 12.253041 1.8410185
-[4,] 17.72139 19.128275 230.28774 10.4045980  7.741707 18.807700 1.4231976
-[5,] 51.11797  4.189738  51.95864  0.0000000 12.785613  0.000000 0.0000000
-[6,]  0.00000  4.382572  98.46642  0.0000000  1.478472  0.000000 0.0000000
-        [,95]     [,96]     [,97]    [,98]     [,99]    [,100]    [,101]
-[1,] 0.000000 0.4663441 0.0000000 0.000000 0.0000000 0.0000000  0.000000
-[2,] 0.000000 0.0000000 0.0000000 0.000000 0.0000000 0.0000000  0.000000
-[3,] 0.000000 0.0000000 0.0000000 0.000000 0.0000000 0.0000000 36.189596
-[4,] 0.000000 0.0000000 0.9348887 3.770551 0.0000000 0.8166203  8.191323
-[5,] 0.000000 0.0000000 0.0000000 0.000000 0.9848354 0.8419850  0.000000
-[6,] 3.942232 0.0000000 0.0000000 0.000000 0.0000000 0.0000000  0.000000
-        [,102]    [,103]   [,104]   [,105]    [,106]    [,107]    [,108]
-[1,]  0.000000 18.426580 1.065155  0.00000  0.000000  0.000000    0.0000
-[2,]  9.788206  3.337119 5.407687  0.00000  1.470332  0.000000    0.0000
-[3,] 25.512166  0.000000 2.790562  0.00000  2.876827 12.164193    0.0000
-[4,]  0.000000  0.000000 0.000000 41.21618 14.637350 25.795158  431.7218
-[5,]  0.000000  0.000000 0.000000 27.71085  0.000000  5.372634 3134.7448
-[6,]  0.000000  0.000000 0.000000 79.71263  0.000000  0.000000  523.8909
-        [,109]    [,110]    [,111]    [,112]    [,113]    [,114]    [,115]
-[1,]  0.000000  0.000000   0.00000 0.0000000   0.00000  0.000000  0.000000
-[2,]  7.808273  0.000000   0.00000 2.1144072   0.00000  0.000000  0.000000
-[3,]  9.957887  0.000000   0.00000 0.7985133   0.00000  7.111371  5.575847
-[4,] 30.303664 22.936163  29.59794 3.7424980 184.29172  3.543673 14.891161
-[5,]  0.000000  2.391131 116.33527 0.0000000  16.40483 13.041102  1.365754
-[6,]  0.000000  3.768244  75.72830 0.0000000  65.05754  0.000000  0.000000
-       [,116]    [,117]   [,118]   [,119]   [,120]   [,121]   [,122]  [,123]
-[1,] 8.827781 11.575194 38.91473 0.000000 0.000000  0.00000 0.000000 0.00000
-[2,] 8.591447  0.000000 90.40765 0.462742 0.000000  0.00000 0.000000 5.75653
-[3,] 8.038965 31.646339 26.80461 0.000000 0.000000  0.00000 0.000000 0.00000
-[4,] 0.000000  5.346858  0.00000 0.000000 0.000000  0.00000 0.000000 0.00000
-[5,] 0.000000  0.000000  0.00000 0.000000 8.629814  0.00000 1.068911 0.00000
-[6,] 0.000000  0.000000  0.00000 0.000000 0.000000 19.45511 0.000000 0.00000
-       [,124]   [,125]   [,126]   [,127]    [,128]   [,129]    [,130]    [,131]
-[1,] 0.000000 0.000000 0.000000 0.000000 0.6970349 0.000000 0.0000000 0.0000000
-[2,] 0.000000 0.000000 0.000000 8.491731 1.6950091 3.222525 0.5538556 2.2986266
-[3,] 0.000000 0.000000 3.230428 0.000000 0.0000000 1.732871 2.0368039 0.5219845
-[4,] 0.000000 0.000000 5.241062 0.000000 0.0000000 0.000000 0.0000000 0.0000000
-[5,] 6.754248 9.618766 0.000000 2.101976 0.0000000 0.000000 0.0000000 0.0000000
-[6,] 2.869002 6.881279 0.000000 0.000000 0.0000000 0.000000 0.0000000 0.0000000
-       [,132]    [,133]   [,134]   [,135]   [,136]    [,137]  [,138]   [,139]
-[1,] 0.000000 0.0000000 0.000000  0.00000  0.00000 0.7680606 0.00000 0.000000
-[2,] 1.330162 0.0000000 0.000000  0.00000  0.00000 1.4777248 0.00000 0.000000
-[3,] 0.635418 0.0000000 0.000000  0.00000 27.30624 0.0000000 0.00000 4.034901
-[4,] 0.000000 0.9564930 3.990618  0.00000 25.70948 0.0000000 2.42286 0.000000
-[5,] 0.000000 0.9260279 1.692078 43.42365  0.00000 0.0000000 0.00000 0.000000
-[6,] 0.000000 0.0000000 0.000000 45.05448  0.00000 0.0000000 0.00000 0.000000
-       [,140]   [,141]   [,142]   [,143]    [,144]
-[1,] 0.000000 0.000000  0.00000 1.829426 0.0000000
-[2,] 0.000000 0.000000 11.04045 0.000000 0.0000000
-[3,] 0.000000 0.000000  0.00000 0.000000 0.5544442
-[4,] 0.000000 5.944007  0.00000 0.000000 0.0000000
-[5,] 3.557721 0.000000  0.00000 0.000000 0.0000000
-[6,] 0.000000 0.000000  0.00000 0.000000 0.0000000
+     [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]  [,9] [,10] [,11] [,12] [,13]
+[1,]  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.00     0     0     0   0.0
+[2,]  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.87     0     0     0   0.0
+[3,]  0.0  0.0  0.0  0.0  0.0  5.5  0.0  1.5 20.79    25    12    34   0.0
+[4,]  0.0  1.7  0.0  0.0  2.7 18.2  0.0  2.1  0.00    23     0   155  42.2
+[5,]  4.5  0.0  4.1  0.0  5.7  0.0  3.7  0.0  0.00     0    29    99   9.1
+[6,]  0.0  0.0  0.0  3.5  0.0  0.0 78.4  0.0  0.00     0     0     0  13.1
+     [,14] [,15] [,16] [,17] [,18] [,19]  [,20] [,21] [,22] [,23] [,24] [,25]
+[1,]   0.0  0.00    46     0   1.6   4.3   0.00   4.4 0.028  0.74    76     0
+[2,]  17.3  0.00    79    66   0.9   2.0   0.00   1.4 0.187  2.97    44    75
+[3,]   2.1  0.00    79    16   7.5  52.3   3.37  10.6 0.258  4.15    96  5493
+[4,]  16.0  6.72    76   256   4.3   0.0   8.84   1.5 0.308  7.90    81    54
+[5,]   0.0  5.52     0   237   0.0   0.0   0.71   0.0 0.000  0.00    19   414
+[6,]   0.0  0.39     0     0   0.0   0.0 102.84   0.0 0.000  0.00     0   246
+     [,26] [,27] [,28] [,29] [,30] [,31] [,32] [,33] [,34] [,35] [,36] [,37]
+[1,]     0     0    11  10.0  14.1   0.0   0.0  59.2   230    84    90   0.0
+[2,]   126    63    94   9.4  20.1  54.3 120.7   6.3   107    70    34   6.8
+[3,]   232   509    26 210.3   3.2 173.4   8.6  39.3   303   225    23  11.6
+[4,]    89    20    32  23.8  32.9  64.1  80.0  29.1   486   111    71  15.8
+[5,]    51    13    25  81.2  42.1  33.3  84.2  13.1    19    18   206   9.5
+[6,]  1378   265     0   0.0   0.0   4.7  72.7   0.0     0     0     0  17.0
+     [,38] [,39] [,40] [,41] [,42] [,43] [,44] [,45] [,46] [,47] [,48] [,49]
+[1,]   0.0     0    42  0.00  24.2     0    19    62    26  53.3   201    34
+[2,]   8.6    33    16  0.00   3.6    23    55    18   128   3.9    34   214
+[3,]   1.7    20    39  0.00  45.9    55    41    24   125  17.7  1103    63
+[4,]   3.7    21    28  0.37 111.8    72   123    42   118   5.3   489    66
+[5,]  47.7    22    86  1.40   3.5    17   135   232    60  11.7    51    16
+[6,]   0.0    22     0  0.43  38.1    44    26    21   104   7.1   473   236
+     [,50] [,51] [,52] [,53] [,54] [,55] [,56] [,57] [,58] [,59] [,60] [,61]
+[1,]    68     0  2.45   5.3  47.2   0.0   0.0   0.0     0     0     0   0.0
+[2,]    22    62  5.73  83.3   7.4   0.0   0.0   0.0     0     0     0   0.0
+[3,]  1120    61  3.87  38.7  58.9   0.0   0.0   4.2     0    10     0   0.0
+[4,]    69   443  3.29  49.2  32.5   0.0   0.0   0.0     0     0     0   0.0
+[5,]    99    91  0.91  46.9 251.6   0.0   6.5   0.0     0     0    13   1.6
+[6,]   260   136  3.70  57.1 113.2   1.8   0.0   0.0     4     0    32   2.3
+     [,62] [,63] [,64] [,65] [,66] [,67] [,68] [,69] [,70] [,71] [,72] [,73]
+[1,]   0.0  0.00  0.16  0.00  0.00     0     0   0.0   0.0    41     0   0.0
+[2,]   0.0  0.00  1.18  0.00  0.00     0    24   5.4   4.2    17     0   3.4
+[3,]   0.0  0.00  6.63  0.50  0.40    47    30  41.4  21.7   119     0   0.0
+[4,]   3.1  0.00  0.00  0.10  3.74    22   126  83.3   6.7    54     0   0.0
+[5,]   4.7  0.61  0.00  0.38  0.44    57    20  43.7  69.3    16     3   0.0
+[6,]   0.0  1.69  0.00  0.00  0.00    53     0  19.5  32.3     0     0   0.0
+     [,74] [,75] [,76] [,77] [,78] [,79] [,80] [,81] [,82] [,83] [,84] [,85]
+[1,]  0.00     0     0     0   0.0   0.0  0.00   0.0  0.00  10.6   0.0  0.00
+[2,]  0.00     0     0     0   0.0   1.2  0.00   0.0  0.00   9.7  13.4  0.00
+[3,]  0.00    13    11     0   3.2   1.0  0.00   2.0  0.00   0.0   6.9  0.00
+[4,]  0.87     0     0     0   0.0   0.0  0.99   3.5  0.26   0.0   0.0  0.51
+[5,]  0.00     0     0     0   0.0   0.0  0.73   0.0  1.47   0.0   0.0  0.61
+[6,]  0.00     0     0    41   0.0   0.0  0.00   0.0  0.00   0.0   0.0  0.00
+     [,86] [,87] [,88] [,89] [,90] [,91] [,92] [,93] [,94] [,95] [,96] [,97]
+[1,]  12.6     0     0   0.0     0   2.6   0.0   1.2  3.62   0.0  0.47  0.00
+[2,]   3.2     0    25   0.0     0   0.9   0.0   3.6  0.39   0.0  0.00  0.00
+[3,]   9.6     0    11   2.2     0   9.9   1.0  12.3  1.84   0.0  0.00  0.00
+[4,]   0.0    22    18  19.1   230  10.4   7.7  18.8  1.42   0.0  0.00  0.93
+[5,]   0.0    39    51   4.2    52   0.0  12.8   0.0  0.00   0.0  0.00  0.00
+[6,]   0.0    26     0   4.4    98   0.0   1.5   0.0  0.00   3.9  0.00  0.00
+     [,98] [,99] [,100] [,101] [,102] [,103] [,104] [,105] [,106] [,107] [,108]
+[1,]   0.0  0.00   0.00    0.0    0.0   18.4    1.1      0    0.0    0.0      0
+[2,]   0.0  0.00   0.00    0.0    9.8    3.3    5.4      0    1.5    0.0      0
+[3,]   0.0  0.00   0.00   36.2   25.5    0.0    2.8      0    2.9   12.2      0
+[4,]   3.8  0.00   0.82    8.2    0.0    0.0    0.0     41   14.6   25.8    432
+[5,]   0.0  0.98   0.84    0.0    0.0    0.0    0.0     28    0.0    5.4   3135
+[6,]   0.0  0.00   0.00    0.0    0.0    0.0    0.0     80    0.0    0.0    524
+     [,109] [,110] [,111] [,112] [,113] [,114] [,115] [,116] [,117] [,118]
+[1,]    0.0    0.0      0    0.0      0    0.0    0.0    8.8   11.6     39
+[2,]    7.8    0.0      0    2.1      0    0.0    0.0    8.6    0.0     90
+[3,]   10.0    0.0      0    0.8      0    7.1    5.6    8.0   31.6     27
+[4,]   30.3   22.9     30    3.7    184    3.5   14.9    0.0    5.3      0
+[5,]    0.0    2.4    116    0.0     16   13.0    1.4    0.0    0.0      0
+[6,]    0.0    3.8     76    0.0     65    0.0    0.0    0.0    0.0      0
+     [,119] [,120] [,121] [,122] [,123] [,124] [,125] [,126] [,127] [,128]
+[1,]   0.00    0.0      0    0.0    0.0    0.0    0.0    0.0    0.0    0.7
+[2,]   0.46    0.0      0    0.0    5.8    0.0    0.0    0.0    8.5    1.7
+[3,]   0.00    0.0      0    0.0    0.0    0.0    0.0    3.2    0.0    0.0
+[4,]   0.00    0.0      0    0.0    0.0    0.0    0.0    5.2    0.0    0.0
+[5,]   0.00    8.6      0    1.1    0.0    6.8    9.6    0.0    2.1    0.0
+[6,]   0.00    0.0     19    0.0    0.0    2.9    6.9    0.0    0.0    0.0
+     [,129] [,130] [,131] [,132] [,133] [,134] [,135] [,136] [,137] [,138]
+[1,]    0.0   0.00   0.00   0.00   0.00    0.0      0      0   0.77    0.0
+[2,]    3.2   0.55   2.30   1.33   0.00    0.0      0      0   1.48    0.0
+[3,]    1.7   2.04   0.52   0.64   0.00    0.0      0     27   0.00    0.0
+[4,]    0.0   0.00   0.00   0.00   0.96    4.0      0     26   0.00    2.4
+[5,]    0.0   0.00   0.00   0.00   0.93    1.7     43      0   0.00    0.0
+[6,]    0.0   0.00   0.00   0.00   0.00    0.0     45      0   0.00    0.0
+     [,139] [,140] [,141] [,142] [,143] [,144]
+[1,]      0    0.0    0.0      0    1.8   0.00
+[2,]      0    0.0    0.0     11    0.0   0.00
+[3,]      4    0.0    0.0      0    0.0   0.55
+[4,]      0    0.0    5.9      0    0.0   0.00
+[5,]      0    3.6    0.0      0    0.0   0.00
+[6,]      0    0.0    0.0      0    0.0   0.00
+> options(digits=4)
 > 
 > x <- prabinit(prabmatrix=siskiyou, neighborhood=siskiyou.nb, distance="none",toprab=TRUE,toprabp=0.5)
 > x2 <- prabinit(prabmatrix=siskiyou, neighborhood=siskiyou.nb, distance="none",toprab=TRUE,toprabp=0)
@@ -731,3 +643,6 @@ Log likelihood: -597.1798
 > 
 > 
 > 
+> proc.time()
+   user  system elapsed 
+  8.616   0.052   8.695 

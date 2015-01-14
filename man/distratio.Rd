@@ -41,6 +41,7 @@ tests for clustering of species ranges.
 \seealso{\code{\link{prabtest}}}
 
 \examples{
+options(digits=4)
 data(kykladspecreg)
 j <- jaccard(t(kykladspecreg))
 distratio(j)

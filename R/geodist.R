@@ -72,8 +72,8 @@ hprabclust <- function (prabobj, cutdist=0.4, cutout=1,
                         mdsmethod="classical") 
 {
     cf <- match.call()
-    if (mdsplot & mdsmethod!="classical")
-      require(MASS)
+#    if (mdsplot & mdsmethod!="classical")
+#      require(MASS)
     # "Data-alphabetical" ordering 
     oregions <- order(prabobj$specperreg)
     prabo1 <- prabobj$prab[oregions,]

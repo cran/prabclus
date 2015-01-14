@@ -42,6 +42,7 @@ kulczynski(regmat)
 }
 
 \examples{
+options(digits=4)
 data(kykladspecreg)
 kulczynski(t(kykladspecreg))
 }

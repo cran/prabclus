@@ -66,12 +66,15 @@
 \seealso{\code{\link{prabclust}}}
 
 \examples{
+\donttest{
+  options(digits=4)
   data(veronica)
   vei <- prabinit(prabmatrix=veronica[1:50,],distance="jaccard")
   ppv <- prabclust(vei)
   veloci <- prabinit(prabmatrix=veronica[1:50,],rows.are.species=FALSE)
   velociclust <- prabclust(veloci,nnk=0)
   lociplots(ppv,velociclust$clustering,veloci,lcluster=3)
+}
 }
 \keyword{cluster}% at least one, from doc/KEYWORDS
 

@@ -81,6 +81,7 @@ regpop.sar(abmat, prab01=NULL, sarestimate=prab.sarestimate(abmat),
 }
 
 \examples{
+options(digits=4)
 data(siskiyou)
 set.seed(1234)
 x <- prabinit(prabmatrix=siskiyou, neighborhood=siskiyou.nb,

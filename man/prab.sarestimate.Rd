@@ -69,6 +69,7 @@ prab.sarestimate(abmat, prab01=NULL,sarmethod="eigen",
 }
 
 \examples{
+  options(digits=4)
   data(siskiyou)
   x <- prabinit(prabmatrix=siskiyou, neighborhood=siskiyou.nb,
              distance="none")

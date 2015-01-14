@@ -87,6 +87,7 @@ Pleistocene glacial refuges. \emph{Oecologia} 135, 102-109.
 }
 
 \examples{
+options(digits=4)
 data(kykladspecreg)
 data(nb)
 set.seed(1234)

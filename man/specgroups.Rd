@@ -30,6 +30,7 @@
   \url{http://www.homepages.ucl.ac.uk/~ucakche}}
 
 \examples{
+  options(digits=4)
   data(siskiyou)
   x <- prabinit(prabmatrix=siskiyou, neighborhood=siskiyou.nb,
               distance="logkulczynski")  

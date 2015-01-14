@@ -61,6 +61,7 @@ homogen.test(distmat, ne = ncol(distmat), testdist = "erdos")
 \seealso{\code{\link{prabtest}}}
 
 \examples{
+options(digits=4)
 data(kykladspecreg)
 j <- jaccard(t(kykladspecreg))
 homogen.test(j, testdist="erdos")

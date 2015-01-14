@@ -1,4 +1,5 @@
 library(prabclus)
+options(digits=4)
 
 data(kykladspecreg)
 data(nb)
@@ -37,8 +38,10 @@ a2 <- abundtest(x, times=5, p.nb=0.0465, teststat="groups",
 summary(a1)
 summary(a2)
 
+options(digits=2)
 prab.sarestimate(x)
 regpop.sar(x, p.nb=0.046)
+options(digits=4)
 
 x <- prabinit(prabmatrix=siskiyou, neighborhood=siskiyou.nb, distance="none",toprab=TRUE,toprabp=0.5)
 x2 <- prabinit(prabmatrix=siskiyou, neighborhood=siskiyou.nb, distance="none",toprab=TRUE,toprabp=0)

@@ -39,6 +39,7 @@
 }
 
 \examples{
+options(digits=4)
 data(kykladspecreg)
 dicedist(t(kykladspecreg))
 }

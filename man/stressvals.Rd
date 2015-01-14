@@ -40,6 +40,7 @@
   \url{http://www.homepages.ucl.ac.uk/~ucakche}}
 
 \examples{
+  options(digits=4)
   data(tetragonula)
   set.seed(112233)
   taiselect <- sample(236,40)

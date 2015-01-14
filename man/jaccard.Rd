@@ -40,6 +40,7 @@ jaccard(regmat)
 }
 
 \examples{
+options(digits=4)
 data(kykladspecreg)
 jaccard(t(kykladspecreg))
 }

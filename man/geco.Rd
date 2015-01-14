@@ -64,6 +64,7 @@ geco(regmat,geodist=as.dist(matrix(as.integer(!diag(nrow(regmat))))),
 }
 
 \examples{
+options(digits=4)
 data(kykladspecreg)
 data(waterdist)
 geco(t(kykladspecreg),waterdist)

@@ -33,6 +33,7 @@ piecewiselin(distmatrix, maxdist=0.1*max(distmatrix))
 }
 
 \examples{
+options(digits=4)
 data(waterdist)
 piecewiselin(waterdist)
 }

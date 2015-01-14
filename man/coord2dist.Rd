@@ -79,6 +79,7 @@
 }
 
 \examples{
+  options(digits=4)
   data(veronica)
   coord2dist(coordmatrix=veronica.coord[1:20,], cut=20, file.format="decimal2",neighbors=TRUE)
 }

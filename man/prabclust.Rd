@@ -158,6 +158,7 @@ tests for clustering of species ranges. \emph{Computational Statistics
 }
 
 \examples{
+\donttest{
 # Biotic element/range clustering:
 data(kykladspecreg)
 data(nb)
@@ -181,6 +182,7 @@ print(prabclust(tai))
 data(veronica)
 vei <- prabinit(prabmatrix=veronica[1:50,],distance="jaccard")
 print(prabclust(vei,mdsmethod="kruskal",mdsdim=3))
+}
 }
 \keyword{cluster}% at least one, from doc/KEYWORDS
 \keyword{spatial}% __ONLY ONE__ keyword per line

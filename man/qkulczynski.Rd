@@ -45,6 +45,7 @@ qkulczynski(regmat, log.distance=FALSE)
 }
 
 \examples{
+options(digits=4)
 data(kykladspecreg)
 qkulczynski(t(kykladspecreg))
 }

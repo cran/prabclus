@@ -193,7 +193,7 @@ toprab <- function(prabobj)
 
     
 build.nblist <- function(prabobj,prab01=NULL,style="C"){
-  require(spdep)
+#  require(spdep)
   if (is.null(prab01))
     prab01 <- prabinit(prabmatrix=toprab(prabobj),rows.are.species=FALSE,
                       distance="none")
@@ -216,7 +216,7 @@ build.nblist <- function(prabobj,prab01=NULL,style="C"){
   nblist[sapply(nblist, length) == 0L] <- 0L
 #  print(nblist)
   class(nblist) <- "nb"
-  out <- nb2listw(nblist,style=style,zero.policy=TRUE)
+  out <- spdep::nb2listw(nblist,style=style,zero.policy=TRUE)
   invisible(out)
 }
 
@@ -228,7 +228,7 @@ prab.sarestimate <- function(abmat, prab01=NULL,sarmethod="eigen",
                              weightstyle="C",
                              quiet=TRUE, sar=TRUE,
                              add.lmobject=TRUE){
-  if (sar) require(spdep)
+#  if (sar) require(spdep)
   if (is.null(prab01))
     prab01 <- prabinit(prabmatrix=toprab(abmat),rows.are.species=FALSE,
                       distance="none")
@@ -248,22 +248,21 @@ prab.sarestimate <- function(abmat, prab01=NULL,sarmethod="eigen",
   abundreg <- data.frame(logabund,species,region,
                          row.names=sapply(1:length(species),toString))
   if (sar){
-#    print("build nblist")
-    nblistw <- build.nblist(abmat,prab01=prab01,style=weightstyle)
+      nblistw <- build.nblist(abmat,prab01=prab01,style=weightstyle)
 #    print("errorsarlm")
-    abundlm <- errorsarlm(logabund~region+species,data=abundreg,
+      abundlm <- spdep::errorsarlm(logabund~region+species,data=abundreg,
                         listw=nblistw,quiet=quiet,zero.policy=TRUE,
                         method=sarmethod)
-    interc <- coef(abundlm)[2] # was 1
-    sigma <- sqrt(summary(abundlm)$s2)
-    regeffects <- c(0,coef(abundlm)[3:(abmat$n.regions+1)]) # was one down
-    speffects <- c(0,coef(abundlm)[(abmat$n.regions+2):
+      interc <- coef(abundlm)[2] # was 1
+      sigma <- sqrt(summary(abundlm)$s2)
+      regeffects <- c(0,coef(abundlm)[3:(abmat$n.regions+1)]) # was one down
+      speffects <- c(0,coef(abundlm)[(abmat$n.regions+2):
                                  (abmat$n.regions+abmat$n.species)]) # dito
-    lambda <- abundlm$lambda
-    nbweight <- mean(c(nblistw[[3]],recursive=TRUE))
-    if (!add.lmobject) abundlm <- NULL
+      lambda <- abundlm$lambda
+      nbweight <- mean(c(nblistw[[3]],recursive=TRUE))
+      if (!add.lmobject) abundlm <- NULL
 #    print("sarestimate end")
-    out <- list(sar=sar,intercept=interc,sigma=sigma,regeffects=regeffects,
+      out <- list(sar=sar,intercept=interc,sigma=sigma,regeffects=regeffects,
               speffects=speffects,lambda=lambda,size=length(nblistw[[3]]),
               nbweight=nbweight,lmobject=abundlm)
   }
@@ -296,7 +295,7 @@ regpop.sar <- function(abmat, prab01=NULL,
                     pdf.regions=prab01$specperreg/(sum(prab01$specperreg)),
                    count=FALSE){
 #  require(spdep)
-  require(mvtnorm)
+#  require(mvtnorm)
   if (is.null(prab01)){
     prab01 <- prabinit(prabmatrix=toprab(abmat),rows.are.species=FALSE,
                       distance="none")
@@ -393,7 +392,7 @@ regpop.sar <- function(abmat, prab01=NULL,
       invmatrix <- solve(diag(nsize)-inbmatrix)
       icov <- sarestimate$sigma^2*invmatrix %*% invmatrix
 #    print(icov)
-      ierror <- rmvnorm(1,sigma=icov)
+      ierror <- mvtnorm::rmvnorm(1,sigma=icov)
 #    print(ierror)
     }
     else

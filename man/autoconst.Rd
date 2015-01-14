@@ -101,6 +101,7 @@ tests for clustering of species ranges. \emph{Computational Statistics
 }
 
 \examples{
+options(digits=4)
 data(kykladspecreg)
 data(nb)
 set.seed(1234)

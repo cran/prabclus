@@ -30,6 +30,8 @@ crmatrix(x,xc,percentages=FALSE)
 }
 
 \examples{
+\donttest{
+  options(digits=3)
   data(kykladspecreg)
   data(nb)
   set.seed(1234)
@@ -38,7 +40,7 @@ crmatrix(x,xc,percentages=FALSE)
 
   crmatrix(x,xc)
   crmatrix(x,xc, percentages=TRUE)
-
+}
 }
 
 \keyword{spatial}% at least one, from doc/KEYWORDS

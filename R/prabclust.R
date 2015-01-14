@@ -4,8 +4,8 @@ prabclust <- function (prabobj, mdsmethod = "classical", mdsdim = 4,
                        nnk = ceiling(prabobj$n.species/40), 
     nclus = 0:9, modelid = "all", permutations = 0) 
 {
-    require(MASS)
-    require(mclust)
+#    require(MASS)
+#    require(mclust)
     oregions <- order(prabobj$specperreg)
     prabo1 <- prabobj$prab[oregions, ]
     ospecies <- do.call("order", as.data.frame(t(prabo1)))
