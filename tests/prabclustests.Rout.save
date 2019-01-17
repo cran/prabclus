@@ -1,6 +1,6 @@
 
-R version 3.1.2 (2014-10-31) -- "Pumpkin Helmet"
-Copyright (C) 2014 The R Foundation for Statistical Computing
+R Under development (unstable) (2019-01-14 r75992) -- "Unsuffered Consequences"
+Copyright (C) 2019 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -18,7 +18,7 @@ Type 'q()' to quit R.
 > library(prabclus)
 Loading required package: MASS
 Loading required package: mclust
-Package 'mclust' version 4.4
+Package 'mclust' version 5.4.2
 Type 'citation("mclust")' for citing this R package in publications.
 > options(digits=4)
 > 
@@ -119,6 +119,17 @@ between-species distance matrix of type  jaccard .
 > library(spdep)
 Loading required package: sp
 Loading required package: Matrix
+Loading required package: spData
+To access larger datasets in this package, install the spDataLarge
+package with: `install.packages('spDataLarge',
+repos='https://nowosad.github.io/drat/', type='source')`
+
+Attaching package: 'spData'
+
+The following object is masked _by_ '.GlobalEnv':
+
+    x
+
 > data(siskiyou)
 > x <- prabinit(prabmatrix=siskiyou, neighborhood=siskiyou.nb,
 +             distance="logkulczynski")
@@ -645,4 +656,4 @@ Log likelihood: -597
 > 
 > proc.time()
    user  system elapsed 
-  8.616   0.052   8.695 
+  9.366   0.063   9.425 

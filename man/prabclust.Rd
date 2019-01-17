@@ -26,10 +26,7 @@
   \code{Heterotrigona_indoFO.txt} or \code{MartinezOrtega04AFLP.dat}.
   \cr
   \bold{Note:} \code{prabclust} calls the function
-  \code{\link[mclust]{mclustBIC}} in package mclust. Its use is
-  protected by a special license, see
-  \url{http://www.stat.washington.edu/mclust/license.txt}, particularly
-  point 6. An alternative is the use of \code{\link{hprabclust}}.
+  \code{\link[mclust]{mclustBIC}} in package mclust. An alternative is the use of \code{\link{hprabclust}}.
 }
 
 \usage{

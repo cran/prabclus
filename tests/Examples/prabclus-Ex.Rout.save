@@ -1,6 +1,6 @@
 
-R version 3.1.2 (2014-10-31) -- "Pumpkin Helmet"
-Copyright (C) 2014 The R Foundation for Statistical Computing
+R Under development (unstable) (2019-01-14 r75992) -- "Unsuffered Consequences"
+Copyright (C) 2019 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -23,10 +23,11 @@ Type 'q()' to quit R.
 > library('prabclus')
 Loading required package: MASS
 Loading required package: mclust
-Package 'mclust' version 4.4
+Package 'mclust' version 5.4.2
 Type 'citation("mclust")' for citing this R package in publications.
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
 > cleanEx()
 > nameEx("NNclean")
 > ### * NNclean
@@ -299,7 +300,7 @@ Type 'citation("mclust")' for citing this R package in publications.
 >   data(tetragonula)
 > # This uses example data file Heterotrigona_indoFO.dat
 >   str(alleleconvert(strmatrix=tetragonula))
- chr [1:236, 1:13] "NO" "EO" "NQ" "OO" "OO" "LN" "OO" "EP" ...
+ chr [1:236, 1:13] "NO" "EO" "NQ" "OO" "OO" "LN" "OO" "EP" "NO" "EO" "NN" ...
  - attr(*, "alevels")= chr [1:28] "A" "B" "C" "D" ...
 >   strucmatrix <-
 +     cbind(c("I1","I1","I2","I2","I3","I3"),
@@ -703,7 +704,7 @@ Clustered species  10
 	replicates)
 
 data:  cl and spg
-X-squared = 2.28, df = NA, p-value = 0.6889
+X-squared = 2.3, df = NA, p-value = 0.7
 
 > 
 > 
@@ -6267,9 +6268,10 @@ List of 13
 > 
 > ### * <FOOTER>
 > ###
+> cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  4.02 0.06 4.094 0 0 
+Time elapsed:  4.97 0.056 5.029 0 0 
 > grDevices::dev.off()
 null device 
           1 

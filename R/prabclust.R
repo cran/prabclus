@@ -130,18 +130,24 @@ prabclust <- function (prabobj, mdsmethod = "classical", mdsdim = 4,
     if (!is.null(operm)) {
         skem$classification[operm] <- skembest$classification
         skem$z[operm, ] <- skembest$z
-        if (!is.null(attr(skembest, "initialization")$noise)) 
-            attr(skem, "initialization")$noise[operm] <- attr(skembest, 
-                "initialization")$noise
+        if (!is.null(attr(skembest, "initialization")$noise)){
+          snoisevector <- (1:prabobj$n.species) %in% attr(skem, "initialization")$noise
+          sbnoisevector <- (1:prabobj$n.species) %in% attr(skembest, "initialization")$noise
+          snoisevector[operm] <- sbnoisevector
+          attr(skem, "initialization")$noise <- (1:prabobj$n.species)[snoisevector]
+        }
         skembest <- skem
     }
     mdsr <- mds
     mds[ospecies, ] <- mdsr
     skem$classification[ospecies] <- skembest$classification
     skem$z[ospecies, ] <- skembest$z
-    if (!is.null(attr(skembest, "initialization")$noise)) 
-        attr(skem, "initialization")$noise[ospecies] <- attr(skembest, 
-            "initialization")$noise
+    if (!is.null(attr(skembest, "initialization")$noise)){
+      snoisevector <- (1:prabobj$n.species) %in% attr(skem, "initialization")$noise
+      sbnoisevector <- (1:prabobj$n.species) %in% attr(skembest, "initialization")$noise
+      snoisevector[ospecies] <- sbnoisevector
+      attr(skem, "initialization")$noise <- (1:prabobj$n.species)[snoisevector]
+    }
     uclustering <- skem$classification
     ncl <- max(uclustering)
     nc <- ncl + 1

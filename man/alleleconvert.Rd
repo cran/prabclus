@@ -8,7 +8,7 @@
   function converts the formats \code{"genepop"} and \code{"structure"} into
   \code{"structurama"} and \code{"prabclus"}. \code{"genepop"}
   is a version of the format
-  used by the package GENEPOP (Rousset, 2010), \code{"structure"} is a version
+  used by the package GENEPOP (Rousset, 2008), \code{"structure"} is a version
   of what is used by STRUCTURE (Pritchard et al., 2000), \code{"structurama"}
   is a version of what is used by STRUCTURAMA (Huelsenbeck and
   Andolfatto, 2007) and \code{"prabclus"} is required by the function
@@ -91,8 +91,10 @@
   population structure using multi-locus genotype data. \emph{Genetics}
   155, 945-959.
   
-  Rousset, F. (2010) Genepop 4.0 for Windows and Linux.
-  \url{http://kimura.univ-montp2.fr/~rousset/Genepop.pdf}
+  Rousset, F. (2008) genepop'007: a complete re-implementation of the
+  genepop software for Windows and Linux. \emph{Molecular Ecology
+  Resources} 8, 103-106.
+
 
 }
 
