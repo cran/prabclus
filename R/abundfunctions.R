@@ -193,7 +193,6 @@ toprab <- function(prabobj)
 
     
 build.nblist <- function(prabobj,prab01=NULL,style="C"){
-#  require(spdep)
   if (is.null(prab01))
     prab01 <- prabinit(prabmatrix=toprab(prabobj),rows.are.species=FALSE,
                       distance="none")
@@ -228,7 +227,6 @@ prab.sarestimate <- function(abmat, prab01=NULL,sarmethod="eigen",
                              weightstyle="C",
                              quiet=TRUE, sar=TRUE,
                              add.lmobject=TRUE){
-#  if (sar) require(spdep)
   if (is.null(prab01))
     prab01 <- prabinit(prabmatrix=toprab(abmat),rows.are.species=FALSE,
                       distance="none")
@@ -250,7 +248,7 @@ prab.sarestimate <- function(abmat, prab01=NULL,sarmethod="eigen",
   if (sar){
       nblistw <- build.nblist(abmat,prab01=prab01,style=weightstyle)
 #    print("errorsarlm")
-      abundlm <- spdep::errorsarlm(logabund~region+species,data=abundreg,
+      abundlm <- spatialreg::errorsarlm(logabund~region+species,data=abundreg,
                         listw=nblistw,quiet=quiet,zero.policy=TRUE,
                         method=sarmethod)
       interc <- coef(abundlm)[2] # was 1
@@ -294,7 +292,6 @@ regpop.sar <- function(abmat, prab01=NULL,
                     vector.species=prab01$regperspec,
                     pdf.regions=prab01$specperreg/(sum(prab01$specperreg)),
                    count=FALSE){
-#  require(spdep)
 #  require(mvtnorm)
   if (is.null(prab01)){
     prab01 <- prabinit(prabmatrix=toprab(abmat),rows.are.species=FALSE,
