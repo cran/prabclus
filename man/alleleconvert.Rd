@@ -9,7 +9,8 @@
   \code{"structurama"} and \code{"prabclus"}. \code{"genepop"}
   is a version of the format
   used by the package GENEPOP (Rousset, 2008), \code{"structure"} is a version
-  of what is used by STRUCTURE (Pritchard et al., 2000), \code{"structurama"}
+  of what is used by STRUCTURE (Pritchard et al., 2000), another one is
+  \code{"structureb"}. \code{"structurama"}
   is a version of what is used by STRUCTURAMA (Huelsenbeck and
   Andolfatto, 2007) and \code{"prabclus"} is required by the function
   \code{\link{alleleinit}} in the present package.
@@ -20,7 +21,7 @@
                           alength=3,orig.nachar="000",new.nachar="-",
                           rows.are.individuals=TRUE, firstcolname=FALSE,
                           aletters=intToUtf8(c(65:90,97:122),multiple=TRUE),
-                          outfile=NULL)
+                          outfile=NULL,skip=0)
 }
 %- maybe also `usage' for other objects documented here.
 \arguments{
@@ -28,8 +29,8 @@
     \code{file} and \code{strmatrix} needs to be specified.}
   \item{strmatrix}{matrix or data frame of strings, see details. One of
     \code{file} and \code{strmatrix} needs to be specified.}
-  \item{format.in}{string. One of \code{"genepop"} or
-    \code{"structure"}, see details.}
+  \item{format.in}{string. One of \code{"genepop"},
+    \code{"structure"}, or \code{"structureb"}, see details.}
   \item{format.out}{string. One of \code{"structurama"} or
     \code{"prabclus"}, see details.}
   \item{alength}{integer. If \code{format.in="genepop"}, length of code
@@ -47,7 +48,9 @@
     dataset).}
   \item{outfile}{string. If specified, the output matrix (omitting
     quotes) is written to a file of this name (including row names if
-    \code{fistcolname==TRUE}).} 
+    \code{fistcolname==TRUE}).}
+  \item{skip}{number of rows to be skipped when reading data from a
+      file (\code{skip}-argument of \code{\link{read.table}}).}
 }
 \details{
   The formats are as follows (described is the format within R, i.e.,
@@ -65,6 +68,11 @@
       Two rows correspond to each inidividual, the first row containing
       the first alleles in all loci and the second row containing the
       second ones.}
+    \item{structureb}{Alleles are coded by strings of arbitrary length.
+      One row corresponds to each inidividual, containing first and
+      second alleles in all loci (first and second allele of first locus, first
+      and second allele of second locus etc.). This starts in the third
+      row (first two have locus names and other information).}
     \item{structurama}{Alleles are coded by strings of arbitrary
       length. the two alleles in each locus are written with brackets
       around them and a comma in between, so \code{"258260"} in
@@ -99,8 +107,8 @@
 }
 
 \author{Christian Hennig
-  \email{chrish@stats.ucl.ac.uk}
-  \url{http://www.homepages.ucl.ac.uk/~ucakche}}
+  \email{christian.hennig@unibo.it}
+  \url{https://www.unibo.it/sitoweb/christian.hennig/en}}
 
 \seealso{
   \code{\link{alleleinit}}

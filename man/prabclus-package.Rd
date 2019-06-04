@@ -61,6 +61,27 @@
     \item{qkulczynski}{Quantitative Kulczynski dissimilarity for
       abundance data.}
 }}
+\section{Communities}{
+  \describe{
+    \item{communities}{Constructs communities from geographical
+      distances between individuals.}
+    \item{communitydist}{chord-, phiPT- and various versions of the
+      shared allele distance between communities.}
+}}
+\section{Tests for equality of dissimilarity-based regression}{
+  \describe{
+    \item{regeqdist}{Jackknife-based test for equality of
+      two independent regressions between distances (Hausdorf and Hennig
+      2019).}
+    \item{regdistbetween}{Jackknife-based test for equality of
+      regression involving all distances and regression involving
+      within-group distances only (Hausdorf and Hennig
+      2019).}
+    \item{regdistbetweenone}{Jackknife-based test for equality of
+      regression involving within-group distances of a reference group
+      only and regression involving between-group distances (Hausdorf
+      and Hennig 2019).}
+}}
 \section{Small conversion functions}{
   \describe{
     \item{coord2dist}{Computes geographical distances from geographical
@@ -98,7 +119,10 @@ Pleistocene glacial refuges. \emph{Oecologia} 135, 102-109.
 
   Hausdorf, B. and Hennig, C. (2010) Species Delimitation Using Dominant
   and Codominant Multilocus Markers. \emph{Systematic Biology}, 59, 491-503.
-  
+
+  Hausdorf, B. and Hennig, C. (2019) Species delimitation and
+  geography. Submitted.
+
   Hennig, C. and Hausdorf, B. (2004) Distance-based parametric bootstrap
 tests for clustering of species ranges. \emph{Computational Statistics
   and
@@ -114,8 +138,8 @@ tests for clustering of species ranges. \emph{Computational Statistics
 
 }
 \author{Christian Hennig
-  \email{chrish@stats.ucl.ac.uk}
-  \url{http://www.homepages.ucl.ac.uk/~ucakche/}
+  \email{christian.hennig@unibo.it}
+  \url{https://www.unibo.it/sitoweb/christian.hennig/en/}
 }
 
 

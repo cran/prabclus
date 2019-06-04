@@ -75,8 +75,8 @@ method="average", nnout=2, mdsplot=TRUE, mdsmethod="classical")
 }
 
 \author{Christian Hennig
-  \email{chrish@stats.ucl.ac.uk}
-  \url{http://www.homepages.ucl.ac.uk/~ucakche}}
+  \email{christian.hennig@unibo.it}
+  \url{https://www.unibo.it/sitoweb/christian.hennig/en}}
 
 \seealso{
   \code{\link{hclust}}, \code{\link{cutree}},

@@ -74,8 +74,8 @@ land snail ranges as a consequence of differential immigration from
 Pleistocene glacial refuges. \emph{Oecologia} 135, 102-109.
 }
 \author{Christian Hennig
-  \email{chrish@stats.ucl.ac.uk}
-  \url{http://www.homepages.ucl.ac.uk/~ucakche}}
+  \email{christian.hennig@unibo.it}
+  \url{https://www.unibo.it/sitoweb/christian.hennig/en}}
 
 
 \seealso{

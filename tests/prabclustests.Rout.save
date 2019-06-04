@@ -1,5 +1,5 @@
 
-R Under development (unstable) (2019-05-27 r76612) -- "Unsuffered Consequences"
+R Under development (unstable) (2019-06-03 r76653) -- "Unsuffered Consequences"
 Copyright (C) 2019 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
@@ -18,7 +18,7 @@ Type 'q()' to quit R.
 > library(prabclus)
 Loading required package: MASS
 Loading required package: mclust
-Package 'mclust' version 5.4.3
+Package 'mclust' version 5.4.2
 Type 'citation("mclust")' for citing this R package in publications.
 > options(digits=4)
 > 
@@ -118,6 +118,7 @@ between-species distance matrix of type  jaccard .
 > 
 > library(spdep)
 Loading required package: sp
+Loading required package: Matrix
 Loading required package: spData
 To access larger datasets in this package, install the spDataLarge
 package with: `install.packages('spDataLarge',
@@ -129,8 +130,6 @@ The following object is masked _by_ '.GlobalEnv':
 
     x
 
-Loading required package: sf
-Linking to GEOS 3.6.1, GDAL 2.2.4, PROJ 4.9.3
 > data(siskiyou)
 > x <- prabinit(prabmatrix=siskiyou, neighborhood=siskiyou.nb,
 +             distance="logkulczynski")
@@ -658,4 +657,4 @@ Log likelihood: -597
 > 
 > proc.time()
    user  system elapsed 
- 16.376   0.768  17.233 
+  9.187   0.067   9.263 

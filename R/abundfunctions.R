@@ -193,6 +193,7 @@ toprab <- function(prabobj)
 
     
 build.nblist <- function(prabobj,prab01=NULL,style="C"){
+#  require(spdep)
   if (is.null(prab01))
     prab01 <- prabinit(prabmatrix=toprab(prabobj),rows.are.species=FALSE,
                       distance="none")
@@ -227,6 +228,7 @@ prab.sarestimate <- function(abmat, prab01=NULL,sarmethod="eigen",
                              weightstyle="C",
                              quiet=TRUE, sar=TRUE,
                              add.lmobject=TRUE){
+#  if (sar) require(spdep)
   if (is.null(prab01))
     prab01 <- prabinit(prabmatrix=toprab(abmat),rows.are.species=FALSE,
                       distance="none")
@@ -292,6 +294,7 @@ regpop.sar <- function(abmat, prab01=NULL,
                     vector.species=prab01$regperspec,
                     pdf.regions=prab01$specperreg/(sum(prab01$specperreg)),
                    count=FALSE){
+#  require(spdep)
 #  require(mvtnorm)
   if (is.null(prab01)){
     prab01 <- prabinit(prabmatrix=toprab(abmat),rows.are.species=FALSE,

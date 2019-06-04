@@ -21,8 +21,8 @@ geo2neighbor(geodist,cut=0.1*max(geodist))
 }
 
 \author{Christian Hennig
-  \email{chrish@stats.ucl.ac.uk}
-  \url{http://www.homepages.ucl.ac.uk/~ucakche}}
+  \email{christian.hennig@unibo.it}
+  \url{https://www.unibo.it/sitoweb/christian.hennig/en}}
 
 \examples{
 data(waterdist)

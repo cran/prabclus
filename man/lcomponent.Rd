@@ -28,8 +28,8 @@ tests for clustering of species ranges. \emph{Computational Statistics
   Data Analysis} 45, 875-896.}
 
 \author{Christian Hennig
-  \email{chrish@stats.ucl.ac.uk}
-  \url{http://www.homepages.ucl.ac.uk/~ucakche}}
+  \email{christian.hennig@unibo.it}
+  \url{https://www.unibo.it/sitoweb/christian.hennig/en}}
 
 \seealso{\code{\link{prabtest}}}
 
