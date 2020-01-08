@@ -1,4 +1,4 @@
-d03f48ed45e3dd96af7bd3d8bddfd674 *DESCRIPTION
+3440a2424e29aba823bb9c07f50f8747 *DESCRIPTION
 a6c42f446151f91f66b562ee021f6630 *NAMESPACE
 9f070d14719b47e9d668a5f07ea95925 *R/NNclean.R
 3948907f95adbd496a824f00e382521c *R/abundfunctions.R
@@ -26,13 +26,13 @@ dba3746883c2bd49790407231b7d90d3 *R/prabinit.R
 a52b46422e0d6501a16859a990ba70a3 *R/qkulczynski.R
 738ce7d3b8c47baa980d95f1fad72e85 *R/randpop.nb.R
 6ccf218080ad33aca67dd6d3c2eb8185 *R/reg2cluster2dist.R
-015a488c2e16f29e138c3e4a5af0acb8 *data/kykladspecreg.rda
+4aed7ca50fa1df3cae2b930d7b52c310 *data/kykladspecreg.rda
 85ad90aabb8fdacde3d3cb6114778c60 *data/kykladspecreg.txt.gz
 1af235643236f0ca7514ed6478b5d751 *data/nb.rda
 fc8ed3d0ead932f0cc212075d8203f2b *data/siskiyou.rda
 38eab42bac0c9bc085cce901c0cbc2cb *data/tetragonula.rda
 aa645a06ca8c4305aa8557b61408526e *data/veronica.rda
-322db871cc8f88e78fff36cee326cf32 *data/waterdist.rda
+c87c2d4a4408c0173d89a8f44442594e *data/waterdist.rda
 5b032d85fb132f2a8234d4ea932eecf0 *data/waterdist.txt.gz
 dbde8ff731b3a2457c9d715157b30bc2 *inst/extdata/00Index.old
 0f3c2be3ead69bf0c7786e38bfa6073e *inst/extdata/Franck04koord.txt
@@ -52,7 +52,7 @@ d3a1da650b72cac8e077125bf422c4e3 *man/NNclean.Rd
 88d86b9518a813257fc9beb3fd891423 *man/allele2zeroone.Rd
 7cc83177c122d4bc9368d6fa02ed4d8f *man/alleleconvert.Rd
 906a1b1fcc8483544226a6244d423bd1 *man/alleledist.Rd
-1b428b27c95a1c21c2c9e4689554ac13 *man/alleleinit.Rd
+ce2a6afdd30af3989d2dcc7d614a3555 *man/alleleinit.Rd
 f6a26990174b37ffecf9d409a7cfbc85 *man/allelepaircomp.Rd
 1d2fe6fbfe6bef884b6cbb7eabc4f30c *man/autoconst.Rd
 69028e6d4d2e2eb71fb757d186ccc6a9 *man/build.charmatrix.Rd
@@ -60,7 +60,7 @@ f6a26990174b37ffecf9d409a7cfbc85 *man/allelepaircomp.Rd
 2d5d1f08ec99030818849cf529326b0e *man/build.nblist.Rd
 1fccba18514eeb7b1f17befbcc524f98 *man/cluspop.nb.Rd
 c5a1cdce1e4d5466d2acb57162c8118b *man/communities.Rd
-c4dbd99dd48acf2a799f81087303a88d *man/communitydist.Rd
+2dd51f111c4e99643ec44068579f6412 *man/communitydist.Rd
 d10299b0feb9134febed0d65caa37a30 *man/comp.test.Rd
 a6a232446d02453de77c9c3dd36c1486 *man/concomp.Rd
 69adc2e4faa7a1395b44e87fdfd9bdad *man/conregmat.Rd
@@ -98,7 +98,7 @@ f450da61dbdb0b93b5f7c3b6c652cee4 *man/prabclus-package.Rd
 81a5e73e14645c52410b7cafe2f06338 *man/regdistbetweenone.Rd
 00cc5d315d89297567e965ad2663737d *man/regdistdiff.Rd
 ae1e03954ef18716280ba38fc12c1cad *man/regdistdiffone.Rd
-fcbd0e6b03df4612fe175c36b713af4b *man/regeqdist.Rd
+ed7212842168f9c05898dea54cfc6810 *man/regeqdist.Rd
 6ebb0a20a1e079f0acc2294dd2246a6d *man/regpop.sar.Rd
 bae29f63520bd1e713bc977a5697dc25 *man/siskiyou.Rd
 ff241faddaf422e30ad7b15abdc2857c *man/specgroups.Rd
@@ -108,7 +108,7 @@ e9dbfd86fc5261ef16e4e4ae0592399c *man/toprab.Rd
 53c6f2a1ffe7daba7ea7951c969f458d *man/unbuild.charmatrix.Rd
 eba2e1723307f7fa13789b8fc95e788a *man/veronica.Rd
 c366a0dca80ff66e1188226a3c123d92 *man/waterdist.Rd
-60b90340041a17d3a9807c2c817310cb *tests/Examples/prabclus-Ex.Rout.save
+21b33b13a48ba1c4d4fbeb3627e948af *tests/Examples/prabclus-Ex.Rout.save
 4a311cd019aaf9e2ba7b6dbdb58dc3c8 *tests/donttestexamples.R
 e4ebc8eb38def27e8c7ad3afe3c0f4a3 *tests/prabclustests.R
-b5b7dbd0d92862b5a0a8c8c631c450b9 *tests/prabclustests.Rout.save
+d8a6b4973c55b5a0845d8f27c2a7321e *tests/prabclustests.Rout.save

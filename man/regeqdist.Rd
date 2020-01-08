@@ -65,7 +65,7 @@ regeqdist(dmx,dmy,grouping,groups=levels(as.factor(grouping))[1:2])
 
 \value{
   list of class \code{"regeqdist"} with components
-  \item{pval}{p-value.} 
+  \item{pval}{p-values for intercept and slope.} 
   \item{coeffdiff}{vector of differences between groups (first minus
   second) for intercept and slope.}  
   \item{condition}{condition numbers of regressions, see \code{\link{kappa}}.}

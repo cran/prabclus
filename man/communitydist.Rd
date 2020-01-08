@@ -92,9 +92,7 @@ communitydist(alleleobj,comvector="auto",distance="chord",
   list with components
   \item{comvector}{integer vector of length of the number of
     individuals, indicating their community membership.}
-  \item{chorddist}{chord-distances between communities according to
-    Cavalli-Sforza and Edwards (1967); their original proposal for
-    aggregating different loci is used. Parameter \code{out.dist}
+  \item{dist}{genetic distances between communities. Parameter \code{out.dist}
     determines whether this is a \code{dist}-object or a matrix.}
   \item{cgeodist}{if \code{compute.geodist}, geographical distance
   between communities defined as average distance of all pairs of
@@ -149,17 +147,27 @@ communitydist(alleleobj,comvector="auto",distance="chord",
   tetraspec <- c(rep(1,11),rep(2,13),rep(3,14))
   tetracoms <-
   c(rep(1:3,each=3),4,5,rep(6:11,each=2),12,rep(13:19,each=2))
-  communitydist(tai,comvector=tetracoms,distance="chord",
+  c1 <- communitydist(tai,comvector=tetracoms,distance="chord",
     geodist=tnb$distmatrix,grouping=tetraspec)
-  communitydist(tai,comvector=tetracoms,distance="phipt",
+  c2 <- communitydist(tai,comvector=tetracoms,distance="phipt",
     geodist=tnb$distmatrix,grouping=tetraspec,compute.geodist=FALSE)
-  communitydist(tai,comvector=tetracoms,distance="shared.average",
+  c3 <- communitydist(tai,comvector=tetracoms,distance="shared.average",
     geodist=tnb$distmatrix,grouping=tetraspec,compute.geodist=FALSE)
-  communitydist(tai,comvector=tetracoms,distance="shared.chakraborty",
+  c4 <- communitydist(tai,comvector=tetracoms,distance="shared.chakraborty",
     geodist=tnb$distmatrix,grouping=tetraspec,compute.geodist=FALSE)
-  communitydist(tai,comvector=tetracoms,distance="shared.problist",
+  c5 <- communitydist(tai,comvector=tetracoms,distance="shared.problist",
     geodist=tnb$distmatrix,grouping=tetraspec,compute.geodist=FALSE)
-  
+  round(c1$cgeodist,digits=1)
+  c1$comvector
+  c2$comvector
+  c3$comvector
+  c4$comvector
+  c5$comvector
+  round(c1$dist,digits=2)
+  round(c2$dist,digits=2)
+  round(c3$dist,digits=2)
+  round(c4$dist,digits=2)
+  round(c5$dist,digits=2)  
 }
 \keyword{spatial}% __ONLY ONE__ keyword per line
 \keyword{multivariate}% __ONLY ONE__ keyword per line
