@@ -1,7 +1,7 @@
 
-R Under development (unstable) (2020-01-03 r77629) -- "Unsuffered Consequences"
-Copyright (C) 2020 The R Foundation for Statistical Computing
-Platform: x86_64-pc-linux-gnu (64-bit)
+R Under development (unstable) (2023-10-23 r85395) -- "Unsuffered Consequences"
+Copyright (C) 2023 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -23,7 +23,7 @@ Type 'q()' to quit R.
 > library('prabclus')
 Loading required package: MASS
 Loading required package: mclust
-Package 'mclust' version 5.4.5
+Package 'mclust' version 6.0.0
 Type 'citation("mclust")' for citing this R package in publications.
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
@@ -6863,7 +6863,7 @@ List of 13
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  7.106 0.063 7.224 0 0 
+Time elapsed:  6.333 0.076 6.409 0 0 
 > grDevices::dev.off()
 null device 
           1 

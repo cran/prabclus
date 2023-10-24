@@ -1,8 +1,8 @@
-3440a2424e29aba823bb9c07f50f8747 *DESCRIPTION
+ce0098c27a910b909727c551bb921fa6 *DESCRIPTION
 a6c42f446151f91f66b562ee021f6630 *NAMESPACE
 9f070d14719b47e9d668a5f07ea95925 *R/NNclean.R
 3948907f95adbd496a824f00e382521c *R/abundfunctions.R
-115b45f8378c745df5e8b1d06309f1ef *R/alleletest.R
+35282e1fa8fdd6af81628fa35e1e73b8 *R/alleletest.R
 f2a6aea419b2c435341fe67e2f9824f7 *R/autoreg.R
 9f6e91d410bdc0a380b06560f3073db4 *R/cluspop.nb.R
 19284a1ed4dfea41edf6e4e2303a79e3 *R/comp.test.R
@@ -64,7 +64,7 @@ c5a1cdce1e4d5466d2acb57162c8118b *man/communities.Rd
 d10299b0feb9134febed0d65caa37a30 *man/comp.test.Rd
 a6a232446d02453de77c9c3dd36c1486 *man/concomp.Rd
 69adc2e4faa7a1395b44e87fdfd9bdad *man/conregmat.Rd
-0c148c8201f4f970bdd25e626510fd78 *man/coord2dist.Rd
+274e981a5e149ab52063899a5ec14e12 *man/coord2dist.Rd
 66f0795e811205c504eae9d257d66149 *man/crmatrix.Rd
 187c8100af5efd3f85eb97d77305f13b *man/dicedist.Rd
 7ce991d38f08e235c2a28374ba5e85b1 *man/distratio.Rd
@@ -88,7 +88,7 @@ fb5554227628bb0e9a236082846bf782 *man/piecewiselin.Rd
 cf474caa41275a61a32b268399919dd3 *man/pop.sim.Rd
 545d82d98e0b0f74fb41066c431f8f48 *man/prab.sarestimate.Rd
 f450da61dbdb0b93b5f7c3b6c652cee4 *man/prabclus-package.Rd
-255ed440fc22262876104ec5a073f4bc *man/prabclust.Rd
+9130d93163c5db39f5dbc976dc4864a5 *man/prabclust.Rd
 1c4a06af4707f1e6e1400ef92e81f842 *man/prabinit.Rd
 9f2a93d680f75670e58dfc188d70a293 *man/prabtest.Rd
 656bf1024a98626090cfe366f41f62bf *man/qkulczynski.Rd
@@ -108,7 +108,7 @@ e9dbfd86fc5261ef16e4e4ae0592399c *man/toprab.Rd
 53c6f2a1ffe7daba7ea7951c969f458d *man/unbuild.charmatrix.Rd
 eba2e1723307f7fa13789b8fc95e788a *man/veronica.Rd
 c366a0dca80ff66e1188226a3c123d92 *man/waterdist.Rd
-21b33b13a48ba1c4d4fbeb3627e948af *tests/Examples/prabclus-Ex.Rout.save
+b85a6ccc92b64d014a46989e25e6bd4c *tests/Examples/prabclus-Ex.Rout.save
 4a311cd019aaf9e2ba7b6dbdb58dc3c8 *tests/donttestexamples.R
 e4ebc8eb38def27e8c7ad3afe3c0f4a3 *tests/prabclustests.R
-d8a6b4973c55b5a0845d8f27c2a7321e *tests/prabclustests.Rout.save
+6dbed048c68f5d8ee649fcebdaf62bc8 *tests/prabclustests.Rout.save

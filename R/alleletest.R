@@ -130,7 +130,7 @@ alleledist <- function(allelelist,ni,np,count=FALSE){
         jdist[i,j] <- jdist[j,i] <- 1-sagreements/(2*snna)
       else{
         jdist[i,j] <- jdist[j,i] <- 1
-        cat("\n i=",i," j=",j,"\n")
+#        cat("\n i=",i," j=",j,"\n")
         warning("Too many NAs, distance cannot be computed, set to 1.")
       }
     }

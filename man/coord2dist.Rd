@@ -67,7 +67,7 @@
 }
 \references{
   German Wikipedia from 29 August 2010:
-  \url{http://de.wikipedia.org/wiki/Orthodrome}
+  \url{https://de.wikipedia.org/wiki/Orthodrome}
 }
 
 \author{Christian Hennig

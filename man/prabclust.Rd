@@ -117,7 +117,7 @@ ceiling(prabobj$n.species/40), nclus = 0:9, modelid = "all", permutations=0)
 }
 \references{
   Fraley, C.  and Raftery, A. E. (1998) How many clusters? Which
-  clusterin method? - Answers via Model-Based Cluster Analysis.
+  clustering method? - Answers via Model-Based Cluster Analysis.
   \emph{Computer Journal} 41, 578-588.
 
   Hausdorf, B. and Hennig, C. (2010) Species Delimitation Using Dominant
