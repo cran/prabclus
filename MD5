@@ -1,4 +1,4 @@
-ce0098c27a910b909727c551bb921fa6 *DESCRIPTION
+adf86e2b29a66f1adec6f73d775bd5e4 *DESCRIPTION
 a6c42f446151f91f66b562ee021f6630 *NAMESPACE
 9f070d14719b47e9d668a5f07ea95925 *R/NNclean.R
 3948907f95adbd496a824f00e382521c *R/abundfunctions.R
@@ -88,7 +88,7 @@ fb5554227628bb0e9a236082846bf782 *man/piecewiselin.Rd
 cf474caa41275a61a32b268399919dd3 *man/pop.sim.Rd
 545d82d98e0b0f74fb41066c431f8f48 *man/prab.sarestimate.Rd
 f450da61dbdb0b93b5f7c3b6c652cee4 *man/prabclus-package.Rd
-9130d93163c5db39f5dbc976dc4864a5 *man/prabclust.Rd
+ff4d1d1b15071c04a71ad51491bdf532 *man/prabclust.Rd
 1c4a06af4707f1e6e1400ef92e81f842 *man/prabinit.Rd
 9f2a93d680f75670e58dfc188d70a293 *man/prabtest.Rd
 656bf1024a98626090cfe366f41f62bf *man/qkulczynski.Rd
@@ -102,13 +102,13 @@ ed7212842168f9c05898dea54cfc6810 *man/regeqdist.Rd
 6ebb0a20a1e079f0acc2294dd2246a6d *man/regpop.sar.Rd
 bae29f63520bd1e713bc977a5697dc25 *man/siskiyou.Rd
 ff241faddaf422e30ad7b15abdc2857c *man/specgroups.Rd
-b44570ec29241a8324ca81704ea7ba4a *man/stressvals.Rd
+6008cd390d20ad2a544b3a228e12860f *man/stressvals.Rd
 5f8ca0973829986561a78db65466fcbd *man/tetragonula.Rd
 e9dbfd86fc5261ef16e4e4ae0592399c *man/toprab.Rd
 53c6f2a1ffe7daba7ea7951c969f458d *man/unbuild.charmatrix.Rd
 eba2e1723307f7fa13789b8fc95e788a *man/veronica.Rd
 c366a0dca80ff66e1188226a3c123d92 *man/waterdist.Rd
-b85a6ccc92b64d014a46989e25e6bd4c *tests/Examples/prabclus-Ex.Rout.save
+b949ef1d14d7094184bee5eb3c63e128 *tests/Examples/prabclus-Ex.Rout.save
 4a311cd019aaf9e2ba7b6dbdb58dc3c8 *tests/donttestexamples.R
-e4ebc8eb38def27e8c7ad3afe3c0f4a3 *tests/prabclustests.R
-6dbed048c68f5d8ee649fcebdaf62bc8 *tests/prabclustests.Rout.save
+74324b3682f789c0536457a528b9f493 *tests/prabclustests.R
+7a3c82f821bc9db899294ab9934a46f1 *tests/prabclustests.Rout.save

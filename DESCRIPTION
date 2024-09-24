@@ -1,10 +1,12 @@
 Package: prabclus
 Title: Functions for Clustering and Testing of Presence-Absence,
         Abundance and Multilocus Genetic Data
-Version: 2.3-3
-Date: 2023-10-23
-Author: Christian Hennig <christian.hennig@unibo.it>, 
-        Bernhard Hausdorf <Hausdorf@zoologie.uni-hamburg.de>
+Version: 2.3-4
+Date: 2024-09-24
+Authors@R: c(person("Christian", "Hennig", role = c("aut", "cre"),
+             email = "christian.hennig@unibo.it"),
+             person("Bernhard", "Hausdorf", role = "aut",
+             email = "Hausdorf@zoologie.uni-hamburg.de"))
 Depends: R (>= 2.10), MASS, mclust
 Suggests: spdep, spatialreg, bootstrap, foreign, mvtnorm
 Description: Distance-based parametric bootstrap tests for clustering with 
@@ -14,10 +16,12 @@ Description: Distance-based parametric bootstrap tests for clustering with
   based noise detection. Genetic distances between communities.
   Tests whether various distance-based regressions
   are equal. Try package?prabclus for on overview. 
-Maintainer: Christian Hennig <christian.hennig@unibo.it>
 License: GPL
 URL: https://www.unibo.it/sitoweb/christian.hennig/en/
 NeedsCompilation: no
-Packaged: 2023-10-23 23:33:09 UTC; chrish
+Packaged: 2024-09-24 10:06:15 UTC; chrish
+Author: Christian Hennig [aut, cre],
+  Bernhard Hausdorf [aut]
+Maintainer: Christian Hennig <christian.hennig@unibo.it>
 Repository: CRAN
-Date/Publication: 2023-10-24 00:30:02 UTC
+Date/Publication: 2024-09-24 11:10:02 UTC

@@ -25,7 +25,7 @@ vei <- prabinit(prabmatrix=veronica[1:50,],
                 distance="jaccard")
 print(vei)
 
-library(spdep)
+# library(spdep)
 data(siskiyou)
 x <- prabinit(prabmatrix=siskiyou, neighborhood=siskiyou.nb,
             distance="logkulczynski")

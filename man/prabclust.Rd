@@ -149,7 +149,7 @@ tests for clustering of species ranges. \emph{Computational Statistics
 \seealso{
   \code{\link[mclust]{mclustBIC}}, \code{\link[mclust]{summary.mclustBIC}},
   \code{\link{NNclean}}, \code{\link{cmdscale}},
-  \code{\link{isoMDS}}, \code{\link{sammon}},
+  \code{\link[MASS]{isoMDS}}, \code{\link[MASS]{sammon}},
   \code{\link{prabinit}}, \code{\link{hprabclust}},
   \code{\link{alleleinit}}, \code{\link{stressvals}}.
 }
