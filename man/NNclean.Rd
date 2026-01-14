@@ -72,7 +72,7 @@ Removal for Estimating Features in Spatial Point Processes,
 be freely distributed for non-commercial purposes only.} 
 
 \examples{
-library(mclust)
+\dontdiff{require(mclust)}
 data(chevron)
 nnc <-  NNclean(chevron[,2:3],15,plot=TRUE)
 plot(chevron[,2:3],col=1+nnc$z)

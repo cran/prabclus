@@ -1,4 +1,4 @@
-adf86e2b29a66f1adec6f73d775bd5e4 *DESCRIPTION
+899e760bd55e97c0a4a0cfb3cdcb1620 *DESCRIPTION
 a6c42f446151f91f66b562ee021f6630 *NAMESPACE
 9f070d14719b47e9d668a5f07ea95925 *R/NNclean.R
 3948907f95adbd496a824f00e382521c *R/abundfunctions.R
@@ -47,7 +47,7 @@ ab3277f6d6b0acd80d3b7219f711ef67 *inst/extdata/nb.R
 25c75544b86897f1a9b503dd303fdf13 *inst/extdata/siskiyou.R
 8a3f57a89015f448ec4cafe45bf2722c *inst/extdata/tetragonula.R
 739a823c0fd3dd05476bc86e38cdbd11 *inst/extdata/veronica.R
-d3a1da650b72cac8e077125bf422c4e3 *man/NNclean.Rd
+a4e943dc0b3b2394c1cd97f7195bd065 *man/NNclean.Rd
 545c2cb38cbbf1ee107b1d1071991c54 *man/abundtest.Rd
 88d86b9518a813257fc9beb3fd891423 *man/allele2zeroone.Rd
 7cc83177c122d4bc9368d6fa02ed4d8f *man/alleleconvert.Rd
@@ -108,7 +108,7 @@ e9dbfd86fc5261ef16e4e4ae0592399c *man/toprab.Rd
 53c6f2a1ffe7daba7ea7951c969f458d *man/unbuild.charmatrix.Rd
 eba2e1723307f7fa13789b8fc95e788a *man/veronica.Rd
 c366a0dca80ff66e1188226a3c123d92 *man/waterdist.Rd
-b949ef1d14d7094184bee5eb3c63e128 *tests/Examples/prabclus-Ex.Rout.save
+6ce70b6bd80d1a15d598035c05a18220 *tests/Examples/prabclus-Ex.Rout.save
 4a311cd019aaf9e2ba7b6dbdb58dc3c8 *tests/donttestexamples.R
-74324b3682f789c0536457a528b9f493 *tests/prabclustests.R
-7a3c82f821bc9db899294ab9934a46f1 *tests/prabclustests.Rout.save
+40416244580198168fb08120bea32dab *tests/prabclustests.R
+a587beb1a787f76f621b9f01316c77bd *tests/prabclustests.Rout.save

@@ -1,6 +1,6 @@
 
-R Under development (unstable) (2024-09-11 r87117) -- "Unsuffered Consequences"
-Copyright (C) 2024 The R Foundation for Statistical Computing
+R Under development (unstable) (2026-01-13 r89301) -- "Unsuffered Consequences"
+Copyright (C) 2026 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -21,10 +21,6 @@ Type 'q()' to quit R.
 > source(file.path(R.home("share"), "R", "examples-header.R"))
 > options(warn = 1)
 > library('prabclus')
-Loading required package: MASS
-Loading required package: mclust
-Package 'mclust' version 6.1.1
-Type 'citation("mclust")' for citing this R package in publications.
 > 
 > base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
 > base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
@@ -41,7 +37,12 @@ Type 'citation("mclust")' for citing this R package in publications.
 > 
 > ### ** Examples
 > 
-> library(mclust)
+> ## IGNORE_RDIFF_BEGIN
+> require(mclust)
+Loading required package: mclust
+Package 'mclust' version 6.1.2
+Type 'citation("mclust")' for citing this R package in publications.
+> ## IGNORE_RDIFF_END
 > data(chevron)
 > nnc <-  NNclean(chevron[,2:3],15,plot=TRUE)
 > plot(chevron[,2:3],col=1+nnc$z)
@@ -49,6 +50,9 @@ Type 'citation("mclust")' for citing this R package in publications.
 > 
 > 
 > cleanEx()
+
+detaching ‘package:mclust’
+
 > nameEx("abundtest")
 > ### * abundtest
 > 
@@ -6863,7 +6867,7 @@ List of 13
 > cleanEx()
 > options(digits = 7L)
 > base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
-Time elapsed:  6.757 0.096 6.959 0 0 
+Time elapsed:  7.244 0.06 7.305 0 0 
 > grDevices::dev.off()
 null device 
           1 

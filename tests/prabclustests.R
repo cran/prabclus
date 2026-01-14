@@ -30,12 +30,12 @@ data(siskiyou)
 x <- prabinit(prabmatrix=siskiyou, neighborhood=siskiyou.nb,
             distance="logkulczynski")
 build.nblist(x)
-a1 <- abundtest(x, times=5, p.nb=0.0465)
+# a1 <- abundtest(x, times=5, p.nb=0.0465)
 a2 <- abundtest(x, times=5, p.nb=0.0465, teststat="groups",
                 groupvector=siskiyou.groups)
 # These settings are chosen to make the example execution
 # faster; usually you will use abundtest(x).
-summary(a1)
+# summary(a1)
 summary(a2)
 
 options(digits=2)
